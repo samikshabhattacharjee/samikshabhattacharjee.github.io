@@ -6,71 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ====== JSON-LD SCHEMA ====== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://samikshabhattacharjee.github.io#person",
-        "name": "Samiksha Bhattacharjee",
-        "url": "https://samikshabhattacharjee.github.io",
-        "image": "https://samikshabhattacharjee.github.io/images/author.jpg",
-        "sameAs": [
-          "https://www.goodreads.com/author/show/21266746.Samiksha_Bhattacharjee",
-          "https://www.amazon.co.uk/stores/author/B08WPPW247",
-          "https://www.joinyv.org/talent/samiksha-bhattacharjee",
-          "https://www.instagram.com/samikshasstateofthedebate/",
-          "https://www.youtube.com/@SamikshasStateoftheDebate",
-          "https://substack.com/@samikshasstateofthedebate"
-        ],
-        "jobTitle": [
-          "Author",
-          "Commentator"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "@id": "https://samikshabhattacharjee.github.io#organization"
-        }
-      },
-      {
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://samikshabhattacharjee.github.io",
+      "name": "Samiksha Bhattacharjee",
+      "url": "https://samikshabhattacharjee.github.io",
+      "image": "https://samikshabhattacharjee.github.io/images/profile.jpg",
+
+      "description": "Samiksha Bhattacharjee is a published author, commentator, and student at University College London.",
+      "jobTitle": "Author, Commentator, Student",
+
+      "affiliation": {
         "@type": "Organization",
-        "@id": "https://samikshabhattacharjee.github.io#organization",
-        "name": "Samiksha's State of the Debate",
-        "url": "https://samikshabhattacharjee.github.io",
-        "logo": "https://samikshabhattacharjee.github.io/images/logo.png",
-        "sameAs": [
-          "https://www.youtube.com/@SamikshasStateoftheDebate",
-          "https://substack.com/@samikshasstateofthedebate",
-          "https://www.instagram.com/samikshasstateofthedebate/"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Press/Media/Advertising",
-          "email": "stateofthedebate@gmail.com"
-        }
+        "name": "University College London"
       },
-      {
-        "@type": "Book",
-        "@id": "https://samikshabhattacharjee.github.io#legalcrime",
-        "name": "Legal Crime",
-        "author": {
-          "@id": "https://samikshabhattacharjee.github.io#person"
-        },
-        "image": "https://samikshabhattacharjee.github.io/images/legal-crime.jpg",
-        "url": "https://www.amazon.co.uk/Legal-Crime-Samiksha-Bhattacharjee-ebook/dp/B08WPNS119",
-        "bookFormat": "https://schema.org/EBook",
-        "inLanguage": "en",
-        "description": "A YA thriller exploring peer pressure, family, friendship, and identity.",
-        "publisher": "The Conrad Press",
-        "genre": [
-          "Young Adult",
-          "Thriller"
-        ]
+
+      "knowsAbout": [
+        "Politics",
+        "Economics",
+        "History",
+        "Free Speech",
+        "Feminism"
+      ],
+
+      "sameAs": [
+        "https://www.goodreads.com/author/show/21250460.Samiksha_Bhattacharjee",
+        "https://www.amazon.co.uk/stores/author/Samiksha-Bhattacharjee",
+        "https://www.joinvy.org/talent/samiksha-bhattacharjee",
+        "https://www.instagram.com/samikshasstateoftheday",
+        "https://www.youtube.com/@SamikshasStateoftheDay",
+        "https://substack.com/@samikshasstateoftheday"
+      ],
+
+      "authorOf": {
+        "@id": "https://samikshabhattacharjee.github.io/#legalcrime"
       }
-    ]
-  }
-  </script>
+    },
+
+    {
+      "@type": "Book",
+      "@id": "https://samikshabhattacharjee.github.io/#legalcrime",
+      "name": "Legal Crime",
+      "author": {
+        "@id": "https://samikshabhattacharjee.github.io"
+      },
+      "image": "https://samikshabhattacharjee.github.io/images/legal-crime.jpg",
+      "url": "https://www.amazon.co.uk/Legal-Crime-Samiksha-Bhattacharjee-ebook/dp/B08WPNS119",
+      "bookFormat": "https://schema.org/EBook",
+      "inLanguage": "en",
+      "description": "A YA thriller exploring peer pressure, family, friendship, and identity.",
+      "publisher": "The Conrad Press",
+      "genre": [
+        "Young Adult",
+        "Thriller"
+      ]
+    }
+  ]
+}
+</script>
 
   <!-- ====== BASIC MAGAZINE-STYLE CSS ====== -->
   <style>
