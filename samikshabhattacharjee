@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Samiksha Bhattacharjee</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Samiksha Bhattacharjee",
+    "sameAs": [
+      "https://www.goodreads.com/author/show/21266746.Samiksha_Bhattacharjee",
+      "https://www.amazon.co.uk/stores/author/B08WPPW247",
+      "https://www.joinyv.org/talent/samiksha-bhattacharjee",
+      "https://www.instagram.com/samikshasstateofthedebate/",
+      "https://www.youtube.com/channel/UCka378q9pGei337HfwEwinA"
+    ],
+    "jobTitle": ["Author", "Commentator"],
+    "worksFor": "Samiksha’s State of the Debate"
+  }
+  </script>
+</head>
+
+<body>
+  <h1>Samiksha Bhattacharjee</h1>
+  <p>Author & Commentator</p>
+</body>
+</html>
