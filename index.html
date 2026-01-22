@@ -349,6 +349,62 @@
 .card:nth-child(2) { animation-delay: 0.25s; }
 .card:nth-child(3) { animation-delay: 0.4s; }
 
+    /* ====== SECTION TITLE ANIMATION ====== */
+
+.section-title {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ====== PROFILE IMAGE HOVER ====== */
+
+.logo img {
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+/* ====== HERO CARD HOVER ====== */
+
+.hero-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+/* ====== LINK HOVER EFFECT ====== */
+
+a {
+  transition: color 0.2s ease, letter-spacing 0.2s ease;
+}
+
+a:hover {
+  letter-spacing: 0.5px;
+}
+/* ====== PAGE FADE-IN ====== */
+
+body {
+  animation: pageFade 0.6s ease;
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
   </style>
 </head>
 
