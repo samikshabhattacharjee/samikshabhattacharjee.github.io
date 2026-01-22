@@ -404,6 +404,19 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+    /* ====== SCROLL ANIMATIONS ====== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
   </style>
 </head>
@@ -428,59 +441,65 @@ body {
   <main>
     <!-- ====== LEFT COLUMN (MAIN CONTENT) ====== -->
     <section>
-      <!-- Hero / About -->
-      <div class="section hero section-main">
-        <div class="hero-card">
-          <div class="hero-text">
-            <h2>British author & social commentator.</h2>
-            <p>
-              Samiksha Bhattacharjee writes and speaks at the intersection of culture, politics, and economics.
-              She is the author of <em>Legal Crime</em>, a thriller written at thirteen, and hosts
-              <strong>Samiksha's State of the Debate</strong>, a series exploring free speech, campus culture,
-              and the ideas shaping Gen Z.
-            </p>
-            <div class="hero-meta">
-              <span>Author</span>
-              <span>Commentator</span>
-              <span>Podcast Host</span>
-            </div>
-          </div>
-          <div class="hero-image">
-            <!-- Replace images/author.jpg with your actual author photo path -->
-            <img src="images/pfp youtube.jpg" alt="Samiksha Bhattacharjee">
-          </div>
+  <!-- Hero / About -->
+  <div class="section hero section-main">
+    <div class="hero-card animate-on-scroll">
+      <div class="hero-text">
+        <h2>British author & social commentator.</h2>
+        <p>
+          Samiksha Bhattacharjee writes and speaks at the intersection of culture, politics, and economics.
+          She is the author of <em>Legal Crime</em>, a thriller written at thirteen, and hosts
+          <strong>Samiksha's State of the Debate</strong>, a series exploring free speech, campus culture,
+          and the ideas shaping Gen Z.
+        </p>
+        <div class="hero-meta">
+          <span>Author</span>
+          <span>Commentator</span>
+          <span>Podcast Host</span>
         </div>
       </div>
+      <div class="hero-image">
+        <img src="images/pfp youtube.jpg" alt="Samiksha Bhattacharjee">
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Books / Legal Crime -->
-      <div class="section">
-        <h3 class="section-title">Books</h3>
-        <div class="grid">
-          <article class="card">
-            <div class="card-tag">Book</div>
-            <div class="card-title">Legal Crime</div>
-            <!-- Replace images/legal-crime.jpg with your actual cover path -->
-            <img src="images/legal-crime.png" alt="Legal Crime by Samiksha Bhattacharjee" style="width:100%; border-radius:6px; margin:0.5rem 0;">
-            <p class="card-meta">
-              A gripping YA thriller about identity, peer pressure, and the cost of reinvention.
-            </p>
-            <div class="card-footer">
-              <a href="https://www.amazon.co.uk/Legal-Crime-Samiksha-Bhattacharjee-ebook/dp/B08WPNS119" target="_blank" rel="noopener noreferrer">
-                Read on Amazon →
-              </a>
-            </div>
-          </article>
-        </div>
+   <!-- Books / Legal Crime -->
+<div class="section">
+  <h3 class="section-title animate-on-scroll">Books</h3>
+  <div class="grid">
+    <article class="card animate-on-scroll">
+      <div class="card-tag">Book</div>
+      <div class="card-title">Legal Crime</div>
+
+      <img src="images/legal-crime.png" 
+           alt="Legal Crime by Samiksha Bhattacharjee" 
+           style="width:100%; border-radius:6px; margin:0.5rem 0;">
+
+      <p class="card-meta">
+        A gripping YA thriller about identity, peer pressure, and the cost of reinvention.
+      </p>
+
+      <div class="card-footer">
+        <a href="https://www.amazon.co.uk/Legal-Crime-Samiksha-Bhattacharjee-ebook/dp/B08WPNS119" 
+           target="_blank" rel="noopener noreferrer">
+          Read on Amazon →
+        </a>
       </div>
+    </article>
+  </div>
+</div>
+
 
      <!-- Substack Section -->
 <div class="section">
-  <h3 class="section-title">Substack</h3>
+  <h3 class="section-title animate-on-scroll">Substack</h3>
 
   <div class="grid">
 
     <!-- Weekly Articles -->
-    <article class="card">
+    <article class="card animate-on-scroll">
       <div class="card-tag">Substack</div>
       <div class="card-title">Weekly Articles</div>
       <p class="card-meta">
@@ -494,7 +513,7 @@ body {
     </article>
 
     <!-- State of the Inbox -->
-    <article class="card">
+    <article class="card animate-on-scroll">
       <div class="card-tag">Substack</div>
       <div class="card-title">State of the Inbox</div>
       <p class="card-meta">
@@ -508,7 +527,7 @@ body {
     </article>
 
     <!-- Paid Subscription Offer -->
-    <article class="card">
+    <article class="card animate-on-scroll">
       <div class="card-tag">Offer</div>
       <div class="card-title">Get 10% Off</div>
       <p class="card-meta">
@@ -524,13 +543,12 @@ body {
   </div>
 </div>
 
-
-     <!-- External Articles -->
+<!-- External Articles -->
 <div class="section">
-  <h3 class="section-title">External Commentary</h3>
+  <h3 class="section-title animate-on-scroll">External Commentary</h3>
   <div class="grid">
 
-    <article class="card">
+    <article class="card animate-on-scroll">
       <div class="card-tag">RealClearWorld</div>
       <div class="card-title">
         The UK's Free Speech Act is a Paper Tiger — And America is Next
@@ -546,7 +564,7 @@ body {
       </div>
     </article>
 
-    <article class="card">
+    <article class="card animate-on-scroll">
       <div class="card-tag">City A.M.</div>
       <div class="card-title">
         I'm a teetotaller — banning alcohol-free beer shows Labour's contempt for young people like me
@@ -565,70 +583,75 @@ body {
   </div>
 </div>
 
-      <!-- Podcast Episodes (YouTube Playlist) -->
-      <div class="section">
-        <h3 class="section-title">Podcast · Samiksha's State of the Debate</h3>
-        <p class="card-meta" style="margin-bottom:0.5rem;">
-          Full-length episodes from the <strong>Samiksha's State of the Debate</strong> podcast, exploring culture, economics, politics, and free speech.
-        </p>
-        <div class="podcast-embed">
-          <!-- Playlist embed -->
-          <iframe width="100%" height="315"
-                  src="https://www.youtube.com/embed/videoseries?list=PLdUYBT5_iJexrOtx5JIpqc_ZKkOWZ2CnM"
-                  title="Samiksha's State of the Debate podcast playlist"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen>
-          </iframe>
-        </div>
-        <p class="card-meta" style="margin-top:0.5rem;">
-          View all full episodes on YouTube:
-          <a href="https://www.youtube.com/playlist?list=PLdUYBT5_iJexrOtx5JIpqc_ZKkOWZ2CnM" target="_blank" rel="noopener noreferrer">
-            Samiksha's State of the Debate — Full Episodes →
-          </a>
-        </p>
-      </div>
-    </section>
+<!-- Podcast Episodes (YouTube Playlist) -->
+<div class="section">
+  <h3 class="section-title animate-on-scroll">Podcast · Samiksha's State of the Debate</h3>
 
-    <!-- ====== RIGHT COLUMN (SIDEBAR) ====== -->
-    <aside>
-      <!-- Quick Links -->
-      <div class="sidebar-section">
-        <h3 class="section-title">Find Me Online</h3>
-        <ul class="sidebar-list">
-          <li><a href="https://www.goodreads.com/author/show/21266746.Samiksha_Bhattacharjee" target="_blank" rel="noopener noreferrer">Goodreads</a></li>
-          <li><a href="https://www.amazon.co.uk/stores/author/B08WPPW247" target="_blank" rel="noopener noreferrer">Amazon Author Page</a></li>
-          <li><a href="https://www.joinyv.org/talent/samiksha-bhattacharjee" target="_blank" rel="noopener noreferrer">Young Voices</a></li>
-          <li><a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener noreferrer">Substack</a></li>
-          <li><a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
-          <li><a href="https://www.instagram.com/samikshasstateofthedebate/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="https://chat.whatsapp.com/FgUr4ZMhYAgEyIte4b8Y43" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
-        </ul>
-      </div>
+  <p class="card-meta animate-on-scroll" style="margin-bottom:0.5rem;">
+    Full-length episodes from the <strong>Samiksha's State of the Debate</strong> podcast, exploring culture, economics, politics, and free speech.
+  </p>
 
-      <!-- About / Positioning -->
-      <div class="sidebar-section">
-        <h3 class="section-title">About</h3>
-        <p style="font-size:0.9rem; color:var(--text-muted);">
-          Samiksha Bhattacharjee is a British author and social commentator. Her work advocates for free speech,
-          classical liberal economics, and open debate, with a focus on culture, politics, and economics.
-        </p>
-      </div>
+  <div class="podcast-embed animate-on-scroll">
+    <!-- Playlist embed -->
+    <iframe width="100%" height="315"
+            src="https://www.youtube.com/embed/videoseries?list=PLdUYBT5_iJexrOtx5JIpqc_ZKkOWZ2CnM"
+            title="Samiksha's State of the Debate podcast playlist"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+    </iframe>
+  </div>
 
-      <!-- Contact -->
-      <div class="sidebar-section">
-        <h3 class="section-title">Press & Media</h3>
-        <p style="font-size:0.9rem; color:var(--text-muted);">
-          For press, media, and advertising enquiries:
-        </p>
-        <p style="font-size:0.9rem; margin-top:0.25rem;">
-          <strong>Email:</strong>
-          <a href="mailto:stateofthedebate@gmail.com">stateofthedebate@gmail.com</a>
-        </p>
-      </div>
-    </aside>
-  </main>
+  <p class="card-meta animate-on-scroll" style="margin-top:0.5rem;">
+    View all full episodes on YouTube:
+    <a href="https://www.youtube.com/playlist?list=PLdUYBT5_iJexrOtx5JIpqc_ZKkOWZ2CnM" target="_blank" rel="noopener noreferrer">
+      Samiksha's State of the Debate — Full Episodes →
+    </a>
+  </p>
+</div>
+
+
+<!-- ====== RIGHT COLUMN (SIDEBAR) ====== -->
+<aside>
+
+  <!-- Quick Links -->
+  <div class="sidebar-section animate-on-scroll">
+    <h3 class="section-title">Find Me Online</h3>
+    <ul class="sidebar-list">
+      <li><a href="https://www.goodreads.com/author/show/21266746.Samiksha_Bhattacharjee" target="_blank" rel="noopener noreferrer">Goodreads</a></li>
+      <li><a href="https://www.amazon.co.uk/stores/author/B08WPPW247" target="_blank" rel="noopener noreferrer">Amazon Author Page</a></li>
+      <li><a href="https://www.joinyv.org/talent/samiksha-bhattacharjee" target="_blank" rel="noopener noreferrer">Young Voices</a></li>
+      <li><a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener noreferrer">Substack</a></li>
+      <li><a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+      <li><a href="https://www.instagram.com/samikshasstateofthedebate/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      <li><a href="https://chat.whatsapp.com/FgUr4ZMhYAgEyIte4b8Y43" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
+    </ul>
+  </div>
+
+  <!-- About / Positioning -->
+  <div class="sidebar-section animate-on-scroll">
+    <h3 class="section-title">About</h3>
+    <p style="font-size:0.9rem; color:var(--text-muted);">
+      Samiksha Bhattacharjee is a British author and social commentator. Her work advocates for free speech,
+      classical liberal economics, and open debate, with a focus on culture, politics, and economics.
+    </p>
+  </div>
+
+  <!-- Contact -->
+  <div class="sidebar-section animate-on-scroll">
+    <h3 class="section-title">Press & Media</h3>
+    <p style="font-size:0.9rem; color:var(--text-muted);">
+      For press, media, and advertising enquiries:
+    </p>
+    <p style="font-size:0.9rem; margin-top:0.25rem;">
+      <strong>Email:</strong>
+      <a href="mailto:stateofthedebate@gmail.com">stateofthedebate@gmail.com</a>
+    </p>
+  </div>
+
+</aside>
+
 
   <!-- ====== FOOTER ====== -->
   <footer class="footer">
@@ -644,6 +667,21 @@ body {
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
 </body>
 </html>
 
