@@ -68,13 +68,14 @@
 
   <!-- ====== BASIC MAGAZINE-STYLE CSS ====== -->
   <style>
-   /* ====== ROOT ====== */
+ /* ====== ROOT ====== */
 :root {
   --bg: #ffffff;
   --text-main: #111;
-  --text-muted: #666;
+  --text-muted: #555;
   --accent: #c62828;
   --accent-dark: #a31f1f;
+  --accent-soft: rgba(198, 40, 40, 0.12);
   --border-soft: #e5e5e5;
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --max-width: 860px;
@@ -87,7 +88,7 @@ body {
   font-family: var(--font-main);
   background: var(--bg);
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 a {
@@ -125,19 +126,22 @@ header {
 .header-text .tagline {
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .header-text h1 {
   margin: 0.2rem 0 0.3rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .header-text p {
   margin: 0;
   color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 /* ====== VIDEO HERO ====== */
@@ -156,13 +160,13 @@ header {
   min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  filter: brightness(70%);
+  filter: brightness(65%);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.85));
 }
 
 .hero-content {
@@ -176,23 +180,25 @@ header {
 }
 
 .hero-name {
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin-bottom: 0.5rem;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
+  font-weight: 800;
 }
 
 .hero-tagline {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 1.5rem;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .hero-button {
-  padding: 12px 24px;
+  padding: 12px 28px;
   background: var(--accent);
   color: #fff;
   border-radius: 6px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .hero-button:hover {
@@ -202,25 +208,39 @@ header {
 /* ====== MAIN (HYBRID LAYOUT) ====== */
 main {
   max-width: var(--max-width);
-  margin: 3rem auto;
+  margin: 3.5rem auto;
   padding: 0 1rem;
 }
 
 /* ====== SECTIONS ====== */
 .section {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-title {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 4px;
+  height: 1.2rem;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 /* ====== INTRO ====== */
 .intro-text {
-  font-size: 1.05rem;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-weight: 500;
 }
 
 .identity-tags {
@@ -231,11 +251,12 @@ main {
 }
 
 .identity-tags span {
-  background: #f5f5f5;
-  padding: 6px 12px;
+  background: var(--accent-soft);
+  padding: 6px 14px;
   border-radius: 999px;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--accent-dark);
+  font-weight: 600;
 }
 
 /* ====== AS SEEN IN ====== */
@@ -245,65 +266,75 @@ main {
   gap: 1.25rem;
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--text-muted);
+  font-weight: 600;
 }
 
 /* ====== FEATURED ARTICLES ====== */
 .articles-list {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
 .article-card {
-  background: #fafafa;
-  padding: 1.5rem 1.25rem;
-  border-radius: 10px;
+  background: #fff;
+  padding: 1.75rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  transition: 0.2s ease;
+}
+
+.article-card:hover {
+  background: #fdf6f6;
 }
 
 .article-outlet {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--text-muted);
+  color: var(--accent-dark);
   margin-bottom: 0.4rem;
+  font-weight: 700;
 }
 
 .article-card h3 {
   margin: 0.2rem 0 0.5rem;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .article-excerpt {
   font-size: 0.95rem;
   opacity: 0.9;
+  font-weight: 500;
 }
 
 .section-cta {
   margin-top: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 /* ====== FOOTER ====== */
 .footer {
   max-width: var(--max-width);
-  margin: 3rem auto 2rem;
+  margin: 4rem auto 2rem;
   padding: 0 1rem;
   border-top: 1px solid var(--border-soft);
-  padding-top: 1rem;
+  padding-top: 1.25rem;
   display: flex;
   justify-content: space-between;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
 .footer-links a {
   margin-left: 1rem;
+  font-weight: 600;
 }
-
-
-  </style>
+</style>
 </head>
 
 <body>
