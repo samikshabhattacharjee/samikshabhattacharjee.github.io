@@ -146,6 +146,33 @@ header {
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+    /* ====== NAVBAR ====== */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.navbar ul {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navbar a {
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
 
 /* ====== VIDEO HERO ====== */
 .video-hero {
@@ -380,6 +407,19 @@ main {
       </div>
     </div>
   </header>
+  
+  <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="external-commentary.html">External Commentary</a></li>
+    <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
+    <li><a href="author.html">Author</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="podcast.html">Podcast</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
 
   <!-- ====== VIDEO HERO HEADER ====== -->
 <section class="video-hero">
