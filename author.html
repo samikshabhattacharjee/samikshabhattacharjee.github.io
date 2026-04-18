@@ -253,24 +253,91 @@ header {
     text-align: left;
   }
 }
+    /* ====== AUTHOR PAGE BRAND HEADER ====== */
+.author-brand-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 1.5rem 1.25rem;
+}
+
+.author-brand-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.author-brand-logo {
+  width: 110px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.author-brand-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.author-brand-name {
+  margin: 0.25rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.author-brand-role {
+  margin: 0.25rem 0;
+  color: var(--text-muted);
+}
+
+.tagline {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ====== MOBILE VERSION ====== */
+@media (max-width: 600px) {
+  .author-brand-inner {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .author-brand-logo {
+    width: 90px;
+    margin-bottom: 0.75rem;
+  }
+
+  .author-brand-name {
+    font-size: 1.4rem;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+  }
+}
+
 
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <!-- Replace images/logo.png with your actual logo path -->
-        <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" alt="Samiksha's State of the Debate logo">
-      </div>
-      <div class="header-text">
-        <div class="tagline">Culture · Economics · Politics · The Truth</div>
-        <h1>Samiksha Bhattacharjee</h1>
-        <p>Author of <em>Legal Crime</em> · Host of <strong>Samiksha's State of the Debate</strong></p>
-      </div>
+<header>
+<header class="author-brand-header">
+  <div class="author-brand-inner">
+    <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" 
+         alt="Samiksha's State of the Debate logo" class="author-brand-logo">
+
+    <div class="author-brand-text">
+      <div class="tagline">CULTURE · ECONOMICS · POLITICS · THE TRUTH</div>
+      <h1 class="author-brand-name">Samiksha Bhattacharjee</h1>
+      <p class="author-brand-role">Author of <em>Legal Crime</em> · Host of <strong>Samiksha’s State of the Debate</strong></p>
     </div>
-  </header>
+  </div>
+</header>
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <ul>
