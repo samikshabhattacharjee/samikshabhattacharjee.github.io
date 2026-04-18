@@ -918,5 +918,35 @@ setInterval(() => {
 
   </main>
 
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div>© <span id="year"></span> Samiksha Bhattacharjee. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener noreferrer">Substack</a>
+      <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="mailto:stateofthedebate@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
 </body>
 </html>
+
