@@ -318,7 +318,66 @@ header {
     font-size: 0.75rem;
   }
 }
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.navbar a {
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 0.4rem 0.2rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
 
+.navbar a:hover {
+  color: var(--accent);
+  background: rgba(198,40,40,0.08);
+}
+@media (max-width: 600px) {
+  .navbar ul {
+    gap: 0.5rem 0.75rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .navbar li {
+    flex: 1 1 45%;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.2rem;
+    text-align: center;
+    display: block;
+    background: #fafafa;
+    border: 1px solid var(--border-soft);
+  }
+
+  .navbar a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+.author-brand-header {
+  padding: 1.25rem 1rem;
+}
+
+.author-brand-name {
+  font-size: 1.4rem;
+}
+
+.author-brand-role {
+  font-size: 0.95rem;
+}
+
+.tagline {
+  font-size: 0.75rem;
+}
 
   </style>
 </head>
