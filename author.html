@@ -578,6 +578,11 @@ header {
   opacity: 0.8;
   font-family: "JetBrains Mono", monospace;
 }
+.pi-atmosphere {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.04), rgba(0,0,0,0));
+  padding: 40px 0 20px 0;
+  margin-bottom: 40px;
+}
 
   </style>
 </head>
@@ -825,27 +830,74 @@ header {
   .glitch { font-size: 1.8rem; }
   #countdown { font-size: 1.1rem; }
 }
+
+  .pi-left-line {
+  border-left: 2px solid #d40000;
+  padding-left: 20px;
+  margin-left: 4px;
+}
+.pi-section-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  padding: 60px 0;
+}
+  .pi-classified {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  background: #d40000;
+  color: white;
+  padding: 2px 6px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.section {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.pi-glitch-wrap {
+  margin-bottom: 40px;
+}
+
+.pi-block {
+  margin-bottom: 28px;
+}
+.pi-glitch-rule {
+  width: 60px;
+  height: 2px;
+  background: #d40000;
+  margin: 10px 0 14px 0;
+  opacity: 0.7;
+}
+
 </style>
 
-<section class="section" id="perfected-image">
-
-<section class="section fade-in">
-  <h2 class="section-title">Perfected Image</h2>
-<div class="pi-glitch-wrap fade-in">
-  <h3 class="pi-glitch-title" data-text="Perfected Image">Perfected Image</h3>
-  <p class="pi-glitch-tagline">Perfection is mandatory.</p>
-
-  <div id="countdown" class="pi-countdown"></div>
+<section class="section fade-in" id="perfected-image">
+<div class="pi-section-bg">
+  <!-- Perfected Image content -->
 </div>
 
+  <div class="pi-glitch-wrap fade-in">
+    <h3 class="pi-glitch-title" data-text="Perfected Image">Perfected Image</h3>
+    <p class="pi-glitch-tagline">Perfection is mandatory.</p>
+    <div id="countdown" class="pi-countdown"></div>
+  </div>
+
   <div class="pi-section">
-    <!-- Placeholder Cover -->
-    <div class="pi-placeholder">
-      <div>
-        <div class="pi-title">Perfected Image</div>
-        <div class="pi-tagline">Perfection is mandatory.</div>
-      </div>
+    <div class="pi-placeholder"></div>
+
+    <div class="pi-text">
+      <!-- your PI blocks here -->
     </div>
+  </div>
+<div class="pi-left-line">
+  <!-- glitch block here -->
+</div>
+
+</section>
+<span class="pi-classified">CLASSIFIED</span>
+
 
     <!-- Text -->
     <div class="pi-text">
@@ -868,6 +920,7 @@ header {
     </div>
   </div>
 </section>
+<div class="pi-glitch-rule"></div>
 
 
   <!-- INTRO -->
