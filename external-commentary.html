@@ -1,13 +1,387 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>External Commentary</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>External Commentary - Samiksha Bhattacharjee</title>
 
+  <style>
+    :root{
+      --bg-main:#ffffff;
+      --bg-soft:#fafafa;
+      --text-main:#111111;
+      --text-muted:#555555;
+      --accent:#c62828;
+      --border-soft:#e5e5e5;
+      --max-width:960px;
+      --font-main:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:var(--font-main);
+      background:var(--bg-main);
+      color:var(--text-main);
+      line-height:1.6;
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2rem 1.25rem 3rem;
+    }
+
+    .section{margin-bottom:3rem;}
+    .section-title{
+      font-size:1.9rem;
+      margin-bottom:0.75rem;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+    }
+    .intro-text{
+      font-size:1rem;
+      color:var(--text-muted);
+      max-width:720px;
+    }
+
+    /* Header / nav (reuse style) */
+    header.author-brand-header{
+      background:#fff;
+      border-bottom:1px solid var(--border-soft);
+      padding:1.5rem 1.25rem;
+    }
+    .author-brand-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .author-brand-logo{
+      width:110px;
+      border-radius:8px;
+    }
+    .author-brand-text{flex:1;min-width:220px;}
+    .tagline{
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:var(--text-muted);
+    }
+    .author-brand-name{
+      margin:0.25rem 0;
+      font-size:1.6rem;
+      font-weight:700;
+    }
+    .author-brand-role{
+      margin:0.25rem 0;
+      color:var(--text-muted);
+    }
+
+    nav.navbar{
+      background:#ffffff;
+      border-bottom:1px solid var(--border-soft);
+      box-shadow:0 2px 6px rgba(0,0,0,0.04);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+    nav.navbar ul{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0.75rem 1.25rem;
+      display:flex;
+      gap:1.25rem;
+      list-style:none;
+      align-items:center;
+    }
+    nav.navbar a{
+      font-weight:600;
+      color:var(--text-main);
+      text-decoration:none;
+      padding:0.35rem 0.2rem;
+      border-radius:4px;
+      transition:all .15s ease;
+    }
+    nav.navbar a:hover{
+      color:var(--accent);
+      background:rgba(198,40,40,0.06);
+    }
+
+    /* Cards (reuse from homepage) */
+    .articles-list{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:1rem;
+    }
+    .article-card{
+      border:1px solid var(--border-soft);
+      border-radius:10px;
+      padding:1rem 1.25rem;
+      background:#fff;
+    }
+    .article-outlet{
+      font-size:0.85rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:#777;
+      margin-bottom:0.25rem;
+    }
+    .article-card h3{
+      margin:0 0 0.35rem;
+      font-size:1.05rem;
+    }
+    .article-card h3 a{
+      color:var(--text-main);
+      text-decoration:none;
+    }
+    .article-card h3 a:hover{
+      color:var(--accent);
+      text-decoration:underline;
+    }
+    .article-excerpt{
+      margin:0;
+      color:var(--text-muted);
+    }
+
+    .section-divider{
+      width:100%;
+      height:1px;
+      background:linear-gradient(to right,transparent,#dcdcdc,transparent);
+      margin:60px 0;
+    }
+
+    /* Featured external hero */
+    .feature-hero{
+      border-radius:14px;
+      border:1px solid var(--border-soft);
+      background:var(--bg-soft);
+      padding:1.75rem 1.75rem 1.75rem 1.5rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .feature-hero::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:3px;
+      background:#d40000;
+      opacity:0.9;
+    }
+    .feature-hero-outlet{
+      font-size:0.85rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:#777;
+      margin-bottom:0.35rem;
+    }
+    .feature-hero-title{
+      font-size:1.4rem;
+      margin:0 0 0.5rem;
+    }
+    .feature-hero-title a{
+      color:var(--text-main);
+      text-decoration:none;
+    }
+    .feature-hero-title a:hover{
+      color:var(--accent);
+      text-decoration:underline;
+    }
+    .feature-hero-excerpt{
+      margin:0 0 0.75rem;
+      color:var(--text-muted);
+    }
+    .feature-hero-meta{
+      font-size:0.85rem;
+      color:#777;
+      margin-bottom:0.75rem;
+    }
+    .feature-hero-cta{
+      display:inline-block;
+      padding:0.55rem 1.1rem;
+      border-radius:999px;
+      border:1px solid var(--accent);
+      color:var(--accent);
+      font-size:0.9rem;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .feature-hero-cta:hover{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    /* Substack section */
+    .substack-section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+    .substack-section-header small{
+      font-size:0.85rem;
+      color:var(--text-muted);
+    }
+
+    .substack-hero{
+      margin-top:1.5rem;
+      border-radius:14px;
+      border:1px solid var(--border-soft);
+      padding:1.5rem 1.5rem 1.5rem 1.25rem;
+      background:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .substack-hero::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:#d40000;
+      opacity:0.8;
+    }
+    .substack-hero-label{
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#999;
+      margin-bottom:0.25rem;
+    }
+    .substack-hero-title{
+      font-size:1.25rem;
+      margin:0 0 0.4rem;
+    }
+    .substack-hero-title a{
+      color:var(--text-main);
+      text-decoration:none;
+    }
+    .substack-hero-title a:hover{
+      color:var(--accent);
+      text-decoration:underline;
+    }
+    .substack-hero-meta{
+      font-size:0.85rem;
+      color:#777;
+      margin-bottom:0.5rem;
+    }
+    .substack-hero-excerpt{
+      margin:0 0 0.75rem;
+      color:var(--text-muted);
+    }
+    .substack-hero-cta{
+      font-size:0.9rem;
+      font-weight:600;
+      text-decoration:none;
+      color:var(--accent);
+    }
+    .substack-hero-cta:hover{
+      text-decoration:underline;
+    }
+
+    .substack-list{
+      margin-top:1.75rem;
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:0.9rem;
+    }
+    .substack-item{
+      padding:0.75rem 0;
+      border-bottom:1px solid var(--border-soft);
+    }
+    .substack-item:last-child{
+      border-bottom:none;
+    }
+    .substack-item-title{
+      margin:0 0 0.2rem;
+      font-size:1rem;
+    }
+    .substack-item-title a{
+      color:var(--text-main);
+      text-decoration:none;
+    }
+    .substack-item-title a:hover{
+      color:var(--accent);
+      text-decoration:underline;
+    }
+    .substack-item-meta{
+      font-size:0.8rem;
+      color:#777;
+      margin-bottom:0.25rem;
+    }
+    .substack-item-excerpt{
+      margin:0;
+      font-size:0.9rem;
+      color:var(--text-muted);
+    }
+
+    /* Footer */
+    footer.footer{
+      padding:2rem 1.25rem;
+      border-top:1px solid var(--border-soft);
+      background:#fff;
+    }
+    footer .footer-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap:1rem;
+      font-size:0.9rem;
+    }
+    .footer-links a{
+      color:var(--text-main);
+      text-decoration:none;
+    }
+    .footer-links a:hover{
+      color:var(--accent);
+      text-decoration:underline;
+    }
+
+    @media (max-width:600px){
+      .section-title{font-size:1.6rem;}
+      nav.navbar ul{
+        flex-wrap:wrap;
+        row-gap:0.5rem;
+      }
+      .feature-hero,
+      .substack-hero{
+        padding:1.25rem 1.25rem 1.25rem 1rem;
+      }
+    }
+  </style>
+</head>
 <body>
 
+  <!-- Header -->
+  <header class="author-brand-header">
+    <div class="author-brand-inner">
+      <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp"
+           alt="Samiksha's State of the Debate logo"
+           class="author-brand-logo">
+      <div class="author-brand-text">
+        <div class="tagline">CULTURE · ECONOMICS · POLITICS · THE TRUTH</div>
+        <h1 class="author-brand-name">Samiksha Bhattacharjee</h1>
+        <p class="author-brand-role">
+          Author of <em>Legal Crime</em> · Host of <strong>Samiksha's State of the Debate</strong>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
   <!-- NAVBAR -->
   <nav class="navbar">
     <ul>
@@ -22,11 +396,228 @@
   </nav>
 
   <main>
+
+    <!-- Page title -->
     <section class="section">
       <h1 class="section-title">External Commentary</h1>
-      <p>To be added.</p>
+      <p class="intro-text">
+        Selected journalism, commentary, and analysis — plus weekly articles from
+        <strong>Samiksha's State of the Debate</strong>.
+      </p>
     </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Featured external hero (Telegraph) -->
+    <section class="section">
+      <h2 class="section-title">Featured</h2>
+
+      <article class="feature-hero">
+        <div class="feature-hero-outlet">The Telegraph</div>
+        <h3 class="feature-hero-title">
+          <a href="https://www.telegraph.co.uk/news/2026/03/17/ucl-student-protests-women-rights-event/"
+             target="_blank" rel="noopener">
+            Pro‑trans mob made me the most hated student at my university
+          </a>
+        </h3>
+        <p class="feature-hero-excerpt">
+          The ordeal I suffered at UCL taught me a painful lesson: the price of freedom can be loss of popularity.
+        </p>
+        <div class="feature-hero-meta">
+          Opinion · The Telegraph
+        </div>
+        <a class="feature-hero-cta"
+           href="https://www.telegraph.co.uk/news/2026/03/17/ucl-student-protests-women-rights-event/"
+           target="_blank" rel="noopener">
+          Read full article →
+        </a>
+      </article>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- External commentary list -->
+    <section class="section">
+      <h2 class="section-title">Selected Commentary</h2>
+
+      <div class="articles-list">
+
+        <article class="article-card">
+          <div class="article-outlet">The Telegraph</div>
+          <h3>
+            <a href="https://www.telegraph.co.uk/news/2026/03/17/ucl-student-protests-women-rights-event/"
+               target="_blank" rel="noopener">
+              Pro‑trans mob made me the most hated student at my university
+            </a>
+          </h3>
+          <p class="article-excerpt">
+            The ordeal I suffered at UCL taught me a painful lesson: the price of freedom can be loss of popularity.
+          </p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-outlet">The Independent</div>
+          <h3>
+            <a href="https://www.independent.co.uk/voices/uk-economy-youth-unemployment-lazy-students-b2940210.html"
+               target="_blank" rel="noopener">
+              The economy is rigged against students like me
+            </a>
+          </h3>
+          <p class="article-excerpt">
+            Youth unemployment is climbing and entry‑level jobs are disappearing. So why is policy making it harder?
+          </p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-outlet">City A.M.</div>
+          <h3>
+            <a href="https://www.cityam.com/im-a-teetotaller-banning-alcohol-free-beer-shows-labours-contempt-for-young-people-like-me/"
+               target="_blank" rel="noopener">
+              I'm a teetotaller — banning alcohol‑free beer shows Labour's contempt for young people like me
+            </a>
+          </h3>
+          <p class="article-excerpt">
+            Why proposed restrictions on alcohol‑free beer reveal deeper issues about youth autonomy.
+          </p>
+        </article>
+
+        <!-- Add more external pieces here as you publish them -->
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Substack Weekly Articles (auto-pulled) -->
+    <section class="section" id="substack-weekly">
+      <div class="substack-section-header">
+        <h2 class="section-title">Weekly Articles</h2>
+        <small>
+          From <a href="https://stateofthedebate.substack.com/t/weekly-articles"
+                  target="_blank" rel="noopener">Samiksha's State of the Debate</a>
+        </small>
+      </div>
+
+      <!-- Featured Substack article (filled by JS) -->
+      <div id="substack-hero" class="substack-hero" style="display:none;">
+        <div class="substack-hero-label">Latest weekly article</div>
+        <h3 class="substack-hero-title">
+          <a href="#" target="_blank" rel="noopener" id="substack-hero-link"></a>
+        </h3>
+        <div class="substack-hero-meta" id="substack-hero-meta"></div>
+        <p class="substack-hero-excerpt" id="substack-hero-excerpt"></p>
+        <a href="#" target="_blank" rel="noopener" class="substack-hero-cta" id="substack-hero-cta">
+          Read on Substack →
+        </a>
+      </div>
+
+      <!-- List of remaining Substack posts -->
+      <div id="substack-list" class="substack-list"></div>
+
+      <p class="intro-text" style="margin-top:1.5rem;">
+        For full archives and new posts, visit
+        <a href="https://stateofthedebate.substack.com" target="_blank" rel="noopener">
+          stateofthedebate.substack.com
+        </a>.
+      </p>
+    </section>
+
   </main>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Samiksha Bhattacharjee. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:stateofthedebate@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fetch Substack Weekly Articles via RSS
+    (async function(){
+      const feedUrl = "https://stateofthedebate.substack.com/feed/tag/weekly-articles";
+      const proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
+
+      try{
+        const res = await fetch(proxy);
+        if(!res.ok) throw new Error("Feed request failed");
+        const xmlText = await res.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(xmlText, "application/xml");
+        const items = Array.from(xml.querySelectorAll("item"));
+
+        if(!items.length) return;
+
+        // Helper to get text content safely
+        const getText = (el, sel) => {
+          const node = el.querySelector(sel);
+          return node ? (node.textContent || "").trim() : "";
+        };
+
+        // First item = hero
+        const first = items[0];
+        const heroTitle = getText(first, "title");
+        const heroLink = getText(first, "link");
+        const heroDate = getText(first, "pubDate");
+        const heroDescRaw = getText(first, "description");
+        const heroExcerpt = heroDescRaw.replace(/<[^>]+>/g,"").slice(0,220) + (heroDescRaw.length > 220 ? "…" : "");
+
+        const heroEl = document.getElementById("substack-hero");
+        document.getElementById("substack-hero-link").textContent = heroTitle;
+        document.getElementById("substack-hero-link").href = heroLink;
+        document.getElementById("substack-hero-cta").href = heroLink;
+        document.getElementById("substack-hero-excerpt").textContent = heroExcerpt;
+        document.getElementById("substack-hero-meta").textContent =
+          heroDate ? new Date(heroDate).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "";
+        heroEl.style.display = "block";
+
+        // Remaining items = list
+        const listEl = document.getElementById("substack-list");
+        items.slice(1).forEach(item => {
+          const title = getText(item, "title");
+          const link = getText(item, "link");
+          const date = getText(item, "pubDate");
+          const descRaw = getText(item, "description");
+          const excerpt = descRaw.replace(/<[^>]+>/g,"").slice(0,160) + (descRaw.length > 160 ? "…" : "");
+
+          const wrapper = document.createElement("article");
+          wrapper.className = "substack-item";
+
+          const h = document.createElement("h3");
+          h.className = "substack-item-title";
+          const a = document.createElement("a");
+          a.href = link;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = title;
+          h.appendChild(a);
+
+          const meta = document.createElement("div");
+          meta.className = "substack-item-meta";
+          meta.textContent = date ? new Date(date).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "";
+
+          const p = document.createElement("p");
+          p.className = "substack-item-excerpt";
+          p.textContent = excerpt;
+
+          wrapper.appendChild(h);
+          wrapper.appendChild(meta);
+          wrapper.appendChild(p);
+          listEl.appendChild(wrapper);
+        });
+
+      }catch(e){
+        console.warn("Substack feed error:", e);
+      }
+    })();
+  </script>
 </body>
 </html>
+
