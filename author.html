@@ -9,8 +9,9 @@
      crossorigin="anonymous"></script>
   <title>Author — Samiksha Bhattacharjee</title>
 
+  <!-- Styles -->
   <style>
-    :root {
+    :root{
       --bg-main: #ffffff;
       --bg-soft: #fafafa;
       --text-main: #111111;
@@ -18,638 +19,176 @@
       --accent: #c62828;
       --border-soft: #e5e5e5;
       --max-width: 960px;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    /* Reset */
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; margin:0; font-family:var(--font-main); color:var(--text-main); background:var(--bg-main); line-height:1.6; }
 
-    body {
-      margin: 0;
-      font-family: var(--font-main);
-      background: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.6;
+    /* Layout container */
+    main{ max-width:var(--max-width); margin:0 auto; padding:2rem 1.25rem 3rem; }
+
+    /* Header / nav */
+    header.author-brand-header{ background:#fff; border-bottom:1px solid var(--border-soft); padding:1.5rem 1.25rem; }
+    .author-brand-inner{ max-width:var(--max-width); margin:0 auto; display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; }
+    .author-brand-logo{ width:110px; border-radius:8px; }
+    .author-brand-text{ flex:1; min-width:220px; }
+    .tagline{ font-size:0.9rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); }
+    .author-brand-name{ margin:0.25rem 0; font-size:1.6rem; font-weight:700; }
+    .author-brand-role{ margin:0.25rem 0; color:var(--text-muted); }
+
+    nav.navbar{ background:#ffffff; border-bottom:1px solid var(--border-soft); box-shadow:0 2px 6px rgba(0,0,0,0.04); position:sticky; top:0; z-index:999; }
+    nav.navbar ul{ max-width:var(--max-width); margin:0 auto; padding:0.75rem 1.25rem; display:flex; gap:1.25rem; list-style:none; align-items:center; }
+    nav.navbar a{ font-weight:600; color:var(--text-main); text-decoration:none; padding:0.35rem 0.2rem; border-radius:4px; transition:all .15s ease; }
+    nav.navbar a:hover{ color:var(--accent); background:rgba(198,40,40,0.06); }
+
+    /* Sections */
+    .section{ margin-bottom:3rem; }
+    .section-title{ font-size:1.9rem; margin-bottom:0.75rem; letter-spacing:0.03em; text-transform:uppercase; }
+    .intro-text{ font-size:1rem; color:var(--text-muted); max-width:720px; }
+
+    /* Book layout */
+    .book-layout{ display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; }
+    .book-cover{ flex:1; min-width:260px; }
+    .book-cover img{ width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.12); display:block; }
+    .book-content{ flex:2; min-width:300px; }
+
+    .sidebar-list{ margin-top:0.5rem; color:var(--text-muted); padding-left:0; list-style:none; }
+    .sidebar-list li{ margin-bottom:0.35rem; }
+
+    .buy-box{ margin-top:2rem; padding:1.5rem; border:1px solid var(--border-soft); border-radius:12px; background:var(--bg-soft); }
+    .buy-button{ display:inline-block; padding:12px 24px; background:var(--accent); color:#fff; border-radius:6px; font-weight:700; text-decoration:none; margin-top:0.5rem; }
+    .buy-button:hover{ opacity:0.95; }
+
+    /* Cards */
+    .articles-list{ display:grid; grid-template-columns:repeat(1,1fr); gap:1rem; }
+    .article-card{ border:1px solid var(--border-soft); border-radius:10px; padding:1rem 1.25rem; background:#fff; }
+    .article-excerpt{ margin:0 0 0.5rem; color:var(--text-muted); }
+    .article-outlet{ font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#777; }
+
+    /* Section divider */
+    .section-divider{ width:100%; height:1px; background:linear-gradient(to right, transparent, #dcdcdc, transparent); margin:60px 0; }
+
+    /* Fade-in animation */
+    .fade-in{ opacity:0; transform:translateY(20px); animation:fadeInUp .8s ease forwards; }
+    @keyframes fadeInUp{ to{ opacity:1; transform:translateY(0); } }
+
+    /* PERFECTED IMAGE styles */
+    .pi-section-bg{ padding:40px 0; background-image:linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0)); }
+    .pi-classified{ display:inline-block; font-size:0.7rem; letter-spacing:1px; background:var(--accent); color:#fff; padding:2px 6px; margin-bottom:10px; opacity:0.95; border-radius:3px; }
+
+    .pi-left-line{ border-left:2px solid #d40000; padding-left:20px; margin-left:4px; }
+
+    .pi-glitch-wrap{ margin:20px 0 24px 0; text-align:left; }
+    .pi-glitch-title{ font-size:2.2rem; font-weight:600; position:relative; display:inline-block; color:var(--text-main); letter-spacing:-0.5px; }
+    .pi-glitch-title::before,
+    .pi-glitch-title::after{ content:attr(data-text); position:absolute; left:0; top:0; opacity:0.6; clip-path:inset(0 0 0 0); pointer-events:none; }
+    .pi-glitch-title::before{ color:#d40000; transform:translate(1px,0); animation:glitchShift 3s infinite ease-in-out; }
+    .pi-glitch-title::after{ color:#00aaff; transform:translate(-1px,0); animation:glitchShift2 3s infinite ease-in-out; }
+    @keyframes glitchShift{
+      0%,90%{ clip-path:inset(0 0 0 0); }
+      92%{ clip-path:inset(20% 0 40% 0); }
+      94%{ clip-path:inset(60% 0 10% 0); }
+      96%{ clip-path:inset(10% 0 70% 0); }
+      100%{ clip-path:inset(0 0 0 0); }
     }
-
-    /* ====== NAVBAR ====== */
-    .navbar {
-      background: #fff;
-      border-bottom: 1px solid var(--border-soft);
+    @keyframes glitchShift2{
+      0%,90%{ clip-path:inset(0 0 0 0); }
+      92%{ clip-path:inset(50% 0 20% 0); }
+      94%{ clip-path:inset(5% 0 80% 0); }
+      96%{ clip-path:inset(70% 0 5% 0); }
+      100%{ clip-path:inset(0 0 0 0); }
     }
+    .pi-glitch-tagline{ margin-top:4px; font-size:1rem; opacity:0.75; letter-spacing:0.2px; }
+    .pi-countdown{ margin-top:10px; font-size:0.95rem; color:#444; opacity:0.85; font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; }
 
-    .navbar ul {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
+    .pi-section{ display:flex; gap:40px; align-items:flex-start; margin-top:18px; margin-bottom:40px; flex-wrap:wrap; }
+    .pi-placeholder{ width:280px; aspect-ratio:3/4; background:#fff; border:1px solid var(--border-soft); position:relative; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 0 0 1px rgba(0,0,0,0.03); }
+    .pi-placeholder::before{ content:""; position:absolute; left:0; top:0; width:3px; height:100%; background:#d40000; }
+    .pi-placeholder::after{ content:""; position:absolute; left:0; bottom:0; width:100%; height:3px; background:#d40000; }
+
+    .pi-text{ flex:1; min-width:260px; }
+    .pi-block{ background:#f7f7f7; padding:24px; border-radius:8px; margin-bottom:20px; border:1px solid #eaeaea; }
+    .pi-block.pi-dark{ background:#111; color:#fff; border-color:#333; }
+    .pi-block h3{ margin-top:0; font-size:1.3rem; letter-spacing:0.03em; }
+    .pi-block p{ margin:0; }
+
+    .pi-glitch-rule{ width:60px; height:2px; background:#d40000; margin:10px 0 14px 0; opacity:0.8; border-radius:2px; }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .pi-section{ flex-direction:column; }
+      .pi-placeholder{ width:220px; margin:0 auto; }
+      .pi-left-line{ padding-left:12px; margin-left:0; border-left-width:2px; }
     }
-
-    .navbar a {
-      font-weight: 600;
-      color: var(--text-main);
-      text-decoration: none;
-      padding: 0.25rem 0;
-      transition: color 0.2s ease;
+    @media (max-width:600px){
+      nav.navbar ul{ flex-wrap:wrap; row-gap:0.5rem; }
+      .section-title{ font-size:1.6rem; }
+      .pi-glitch-title{ font-size:1.6rem; }
+      .pi-countdown{ font-size:0.9rem; }
     }
-
-    .navbar a:hover { color: var(--accent); }
-
-    /* ====== PAGE LAYOUT ====== */
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
-    }
-
-    .section { margin-bottom: 3rem; }
-
-    .section-title {
-      font-size: 1.9rem;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .intro-text {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 720px;
-    }
-
-    /* ====== BOOK LAYOUT ====== */
-    .book-layout {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-
-    .book-cover {
-      flex: 1;
-      min-width: 260px;
-    }
-
-    .book-cover img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      display: block;
-    }
-
-    .book-content {
-      flex: 2;
-      min-width: 300px;
-    }
-
-    .sidebar-list {
-      margin-top: 0.5rem;
-      color: var(--text-muted);
-      padding-left: 0;
-      list-style: none;
-    }
-
-    .sidebar-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    /* ====== BUY BOX ====== */
-    .buy-box {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      border: 1px solid var(--border-soft);
-      border-radius: 12px;
-      background: var(--bg-soft);
-    }
-
-    .buy-button {
-      display: inline-block;
-      padding: 12px 24px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-top: 0.5rem;
-    }
-
-    .buy-button:hover { opacity: 0.9; }
-
-    /* ====== CARDS ====== */
-    .articles-list {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1rem;
-    }
-
-    .article-card {
-      border: 1px solid var(--border-soft);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      background: #fff;
-    }
-
-    .article-excerpt {
-      margin: 0 0 0.5rem;
-      color: var(--text-muted);
-    }
-
-    .article-outlet {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #777;
-    }
-
-    /* ====== HEADER ====== */
-header {
-  background: #fff;
-  border-bottom: 1px solid var(--border-soft);
-  padding: 2rem 1.25rem;
-}
-
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.logo img {
-  width: 140px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.header-text {
-  flex: 1;
-  min-width: 260px;
-}
-
-.header-text h1 {
-  margin: 0.25rem 0;
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-.header-text p {
-  margin: 0.25rem 0;
-  color: var(--text-muted);
-}
-
-.tagline {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-/* ====== MOBILE HEADER FIX ====== */
-@media (max-width: 600px) {
-  .header-inner {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .logo img {
-    width: 120px;
-    margin-bottom: 1rem;
-  }
-
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
-}
-
-
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 720px) {
-      .navbar ul { flex-wrap: wrap; row-gap: 0.5rem; }
-      .section-title { font-size: 1.6rem; }
-    }
-
-    /* ====== MOBILE NAV FIX ====== */
-@media (max-width: 600px) {
-
-  .navbar ul {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.75rem 1rem; /* smaller gaps */
-    padding: 0.75rem 1rem;
-  }
-
-  .navbar a {
-    font-size: 0.9rem; /* slightly smaller text */
-    padding: 0.2rem 0;
-  }
-
-  .navbar li {
-    flex: 1 1 calc(50% - 1rem); 
-    /* each item takes half the row on mobile */
-    text-align: left;
-  }
-}
-    /* ====== AUTHOR PAGE BRAND HEADER ====== */
-.author-brand-header {
-  background: #fff;
-  border-bottom: 1px solid var(--border-soft);
-  padding: 1.5rem 1.25rem;
-}
-
-.author-brand-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.author-brand-logo {
-  width: 110px;
-  height: auto;
-  border-radius: 8px;
-}
-
-.author-brand-text {
-  flex: 1;
-  min-width: 260px;
-}
-
-.author-brand-name {
-  margin: 0.25rem 0;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.author-brand-role {
-  margin: 0.25rem 0;
-  color: var(--text-muted);
-}
-
-.tagline {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-/* ====== MOBILE VERSION ====== */
-@media (max-width: 600px) {
-  .author-brand-inner {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .author-brand-logo {
-    width: 90px;
-    margin-bottom: 0.75rem;
-  }
-
-  .author-brand-name {
-    font-size: 1.4rem;
-  }
-
-  .tagline {
-    font-size: 0.75rem;
-  }
-}
-.navbar {
-  background: #ffffff;
-  border-bottom: 1px solid var(--border-soft);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-.navbar a {
-  font-weight: 600;
-  color: var(--text-main);
-  text-decoration: none;
-  padding: 0.4rem 0.2rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.navbar a:hover {
-  color: var(--accent);
-  background: rgba(198,40,40,0.08);
-}
-@media (max-width: 600px) {
-  .navbar ul {
-    gap: 0.5rem 0.75rem;
-    padding: 0.75rem 0.5rem;
-  }
-
-  .navbar li {
-    flex: 1 1 45%;
-  }
-
-  .navbar a {
-    font-size: 0.85rem;
-    padding: 0.35rem 0.2rem;
-    text-align: center;
-    display: block;
-    background: #fafafa;
-    border: 1px solid var(--border-soft);
-  }
-
-  .navbar a:hover {
-    background: var(--accent);
-    color: #fff;
-  }
-}
-.author-brand-header {
-  padding: 1.25rem 1rem;
-}
-
-.author-brand-name {
-  font-size: 1.4rem;
-}
-
-.author-brand-role {
-  font-size: 0.95rem;
-}
-
-.tagline {
-  font-size: 0.75rem;
-}
-/* ===========================
-   PERFECTED IMAGE PLACEHOLDER COVER
-   =========================== */
-
-.pi-placeholder {
-  width: 280px; /* match Legal Crime cover width */
-  aspect-ratio: 3 / 4;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  position: relative;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-}
-
-/* Full-height red vertical line */
-.pi-placeholder::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: #d40000;
-}
-
-/* Bottom red line */
-.pi-placeholder::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background: #d40000;
-}
-
-/* Title + tagline */
-.pi-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-align: left;
-  margin-bottom: 8px;
-}
-
-.pi-tagline {
-  font-size: 1rem;
-  text-align: center;
-  opacity: 0.8;
-}
-
-/* ===========================
-   PERFECTED IMAGE LAYOUT
-   =========================== */
-
-.pi-section {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  margin-bottom: 60px;
-}
-
-.pi-text {
-  flex: 1;
-}
-
-/* Lightened PI blocks */
-.pi-block {
-  background: #f7f7f7;
-  padding: 24px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #eaeaea;
-}
-
-/* Medium parallax */
-.pi-parallax {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  height: 45vh; /* medium */
-  position: relative;
-  margin: 60px 0;
-  filter: brightness(0.85);
-}
-
-/* ===========================
-   SECTION DIVIDERS
-   =========================== */
-
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #dcdcdc, transparent);
-  margin: 60px 0;
-}
-
-/* ===========================
-   FADE-IN ANIMATIONS
-   =========================== */
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===========================
-   HEADER REFINEMENT
-   =========================== */
-
-.author-header {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,1));
-  padding: 40px 0;
-  margin-bottom: 40px;
-}
-/* ===========================
-   GLITCH TITLE (premium)
-   =========================== */
-
-.pi-glitch-wrap {
-  margin: 20px 0 40px 0;
-  text-align: left;
-}
-
-.pi-glitch-title {
-  font-size: 2.2rem;
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
-  color: #111;
-  letter-spacing: -0.5px;
-}
-
-/* subtle glitch layers */
-.pi-glitch-title::before,
-.pi-glitch-title::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0.6;
-  clip-path: inset(0 0 0 0);
-}
-
-.pi-glitch-title::before {
-  color: #d40000;
-  transform: translate(1px, 0);
-  animation: glitchShift 3s infinite ease-in-out;
-}
-
-.pi-glitch-title::after {
-  color: #00aaff;
-  transform: translate(-1px, 0);
-  animation: glitchShift2 3s infinite ease-in-out;
-}
-
-/* glitch animations */
-@keyframes glitchShift {
-  0%, 90% { clip-path: inset(0 0 0 0); }
-  92% { clip-path: inset(20% 0 40% 0); }
-  94% { clip-path: inset(60% 0 10% 0); }
-  96% { clip-path: inset(10% 0 70% 0); }
-  100% { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes glitchShift2 {
-  0%, 90% { clip-path: inset(0 0 0 0); }
-  92% { clip-path: inset(50% 0 20% 0); }
-  94% { clip-path: inset(5% 0 80% 0); }
-  96% { clip-path: inset(70% 0 5% 0); }
-  100% { clip-path: inset(0 0 0 0); }
-}
-
-/* tagline */
-.pi-glitch-tagline {
-  margin-top: 4px;
-  font-size: 1rem;
-  opacity: 0.7;
-  letter-spacing: 0.2px;
-}
-
-/* countdown (dark + subtle) */
-.pi-countdown {
-  margin-top: 10px;
-  font-size: 0.95rem;
-  color: #444;
-  opacity: 0.8;
-  font-family: "JetBrains Mono", monospace;
-}
-.pi-atmosphere {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.04), rgba(0,0,0,0));
-  padding: 40px 0 20px 0;
-  margin-bottom: 40px;
-}
-
   </style>
 </head>
-
 <body>
-<header>
-<header class="author-brand-header">
-  <div class="author-brand-inner">
-    <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" 
-         alt="Samiksha's State of the Debate logo" class="author-brand-logo">
 
-    <div class="author-brand-text">
-      <div class="tagline">CULTURE · ECONOMICS · POLITICS · THE TRUTH</div>
-      <h1 class="author-brand-name">Samiksha Bhattacharjee</h1>
-      <p class="author-brand-role">Author of <em>Legal Crime</em> · Host of <strong>Samiksha’s State of the Debate</strong></p>
+  <!-- Header -->
+  <header class="author-brand-header">
+    <div class="author-brand-inner">
+      <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" alt="Samiksha's logo" class="author-brand-logo">
+      <div class="author-brand-text">
+        <div class="tagline">CULTURE · ECONOMICS · POLITICS · THE TRUTH</div>
+        <h1 class="author-brand-name">Samiksha Bhattacharjee</h1>
+        <p class="author-brand-role">Author of <em>Legal Crime</em> · Host of <strong>Samiksha's State of the Debate</strong></p>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-  <!-- NAVBAR -->
+  <!-- Navbar -->
   <nav class="navbar">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="external-commentary.html">External Commentary</a></li>
-      <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
+      <li><a href="https://stateofthedebate.substack.com" target="_blank" rel="noopener">Substack</a></li>
       <li><a href="author.html">Author</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="https://www.youtube.com/@SamikshasStateofthedebate" target="_blank">Podcast</a></li>
+      <li><a href="https://www.youtube.com/@SamikshasStateofthedebate" target="_blank" rel="noopener">Podcast</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
+  <!-- Main content -->
   <main>
 
-    <!-- PAGE TITLE -->
+    <!-- Author intro -->
     <section class="section">
       <h1 class="section-title">Author</h1>
       <p class="intro-text">
-        British author of <strong>Legal Crime</strong> and the upcoming dystopian thriller <strong>Perfected Image</strong>.  
-        My fiction blends emotional realism with high‑stakes storytelling, exploring identity, freedom, and the systems shaping Gen Z.
+        British author of <strong>Legal Crime</strong> and the upcoming dystopian thriller <strong>Perfected Image</strong>.
+        My fiction blends emotional realism with high-stakes storytelling, exploring identity, freedom, and the systems shaping Gen Z.
       </p>
     </section>
 
-    <!-- LEGAL CRIME -->
+    <!-- Legal Crime -->
     <section class="section">
       <h2 class="section-title">Legal Crime</h2>
 
       <div class="book-layout">
-
         <div class="book-cover">
-          <img src="images/legal-crime.png"  alt="Legal Crime Book Cover">
+          <img src="images/legal-crime.png" alt="Legal Crime Book Cover">
         </div>
 
         <div class="book-content">
-
           <p class="intro-text">
-            Written at thirteen, <strong>Legal Crime</strong> is a coming‑of‑age psychological thriller that captures the raw intensity of adolescence — the pressure to fit in, the fear of standing out, and the danger of running from the truth.
+            Written at thirteen, <strong>Legal Crime</strong> is a coming-of-age psychological thriller that captures the raw intensity of adolescence — the pressure to fit in, the fear of standing out, and the danger of running from the truth.
           </p>
 
           <p class="intro-text">
-            The story follows <strong>sixteen‑year‑old Fiona Watson</strong>, who runs away from home believing she can escape the expectations crushing her. But the world outside is not the freedom she imagined.  
-            As Fiona navigates unfamiliar streets, fractured friendships, and the consequences of impulsive decisions, she becomes entangled in secrets that force her to confront who she really is — and who she is becoming.
+            The story follows <strong>sixteen-year-old Fiona Watson</strong>, who runs away from home believing she can escape the expectations crushing her. As Fiona navigates unfamiliar streets, fractured friendships, and the consequences of impulsive decisions, she becomes entangled in secrets that force her to confront who she really is.
           </p>
 
           <p class="intro-text">
-            Beneath the surface of a seemingly ordinary teenage life lies a darker reality shaped by manipulation, hidden motives, and the quiet violence of growing up too fast.  
-            <strong>Legal Crime</strong> explores:
+            Beneath the surface of a seemingly ordinary teenage life lies a darker reality shaped by manipulation, hidden motives, and the quiet violence of growing up too fast.
           </p>
 
           <ul class="sidebar-list">
@@ -663,401 +202,215 @@ header {
           <div class="buy-box">
             <h3 style="margin-top:0; font-weight:700;">Buy a Signed & Personalised Copy</h3>
             <p class="intro-text" style="margin-bottom:1rem;">
-              Directly supports the author.  
-              Use code <strong>samiksha25</strong> for <strong>25% off</strong>.
+              Directly supports the author. Use code <strong>samiksha25</strong> for <strong>25% off</strong>.
             </p>
-            <a href="https://buy.stripe.com/cNicN5d5J4pfbgD6KQ8so00" target="_blank" class="buy-button">
-              Buy Now →
-            </a>
+            <a href="https://buy.stripe.com/cNicN5d5J4pfbgD6KQ8so00" target="_blank" rel="noopener" class="buy-button">Buy Now →</a>
           </div>
-
         </div>
       </div>
 
       <h3 style="margin-top:3rem; font-weight:700;">Blog Tour</h3>
       <ul class="sidebar-list">
-        <li><a href="#">Ceri’s Little Blog — Review</a></li>
-        <li><a href="#">Little Bird Book Blog — Spotlight</a></li>
-        <li><a href="#">Featz Reviews — Review</a></li>
-        <li><a href="#">Emma’s Biblio Treasures — Review</a></li>
-        <li><a href="#">Lucy Rambles — Guest Feature</a></li>
-        <li><a href="#">The Book Reader — Review</a></li>
-        <li><a href="#">Hannah Loves To Read — Review</a></li>
-        <li><a href="#">Mai’s Musings — Review</a></li>
-        <li><a href="#">Portable Magic — Extract</a></li>
-        <li><a href="#">If These Books Could Talk — Review</a></li>
+        <li><a href="#">Ceri's Little Blog - Review</a></li>
+        <li><a href="#">Little Bird Book Blog - Spotlight</a></li>
+        <li><a href="#">Featz Reviews - Review</a></li>
+        <li><a href="#">Emma's Biblio Treasures - Review</a></li>
+        <li><a href="#">Lucy Rambles - Guest Feature</a></li>
+        <li><a href="#">The Book Reader - Review</a></li>
+        <li><a href="#">Hannah Loves To Read - Review</a></li>
+        <li><a href="#">Mai's Musings - Review</a></li>
+        <li><a href="#">Portable Magic - Extract</a></li>
+        <li><a href="#">If These Books Could Talk - Review</a></li>
       </ul>
 
       <h3 style="margin-top:2.5rem; font-weight:700;">Selected Reviews</h3>
       <div class="articles-list">
-
         <article class="article-card">
-          <p class="article-excerpt">
-            “A lovely tale of friendship draped in an adventure story, with the theme clearly about identity.”
-          </p>
+          <p class="article-excerpt">"A lovely tale of friendship draped in an adventure story, with the theme clearly about identity."</p>
           <div class="article-outlet">— Whispering Stories</div>
         </article>
 
         <article class="article-card">
-          <p class="article-excerpt">
-            “I could picture the characters and visualise the story… she ties up the ends beautifully.”
-          </p>
+          <p class="article-excerpt">"I could picture the characters and visualise the story ... she ties up the ends beautifully."</p>
           <div class="article-outlet">— Betanda Shanam, Reedsy Discovery</div>
         </article>
-
       </div>
     </section>
-<div class="section-divider"></div>
 
-<section class="section fade-in">
-  <h2 class="section-title">My Fiction</h2>
-  <p class="intro-text">
-    Every story I write begins with the same question: what happens when the world decides who you should be?
-    In <strong>Legal Crime</strong>, that pressure is subtle and psychological.
-    In <strong>Perfected Image</strong>, it becomes systemic, enforced, and inescapable.
-  </p>
-</section>
+    <div class="section-divider"></div>
 
-<div class="section-divider"></div>
-
-  <!-- ========================= -->
-<!--  PERFECTED IMAGE TEASER   -->
-<!-- ========================= -->
-
-<style>
-/* ===== PARALLAX BACKGROUND ===== */
-.pi-parallax {
-  background: url('https://images.unsplash.com/photo-1526401485004-2fda9f6d2a8c?auto=format&fit=crop&w=1400&q=80') center/cover fixed;
-  padding: 5rem 1.5rem;
-  border-radius: 12px;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.pi-parallax::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  border-radius: 12px;
-}
-
-/* ===== GLITCH TITLE ===== */
-.glitch {
-  font-size: 2.4rem;
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
-  letter-spacing: 0.05em;
-  animation: glitch-skew 1.5s infinite linear alternate-reverse;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.glitch::before {
-  color: #ff003c;
-  animation: glitch-anim 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  color: #00fff9;
-  animation: glitch-anim2 1.5s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitch-anim2 {
-  0% { transform: translate(0); }
-  20% { transform: translate(2px, -2px); }
-  40% { transform: translate(2px, 2px); }
-  60% { transform: translate(-2px, -2px); }
-  80% { transform: translate(-2px, 2px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitch-skew {
-  0% { transform: skew(0deg); }
-  50% { transform: skew(2deg); }
-  100% { transform: skew(-2deg); }
-}
-
-/* ===== COUNTDOWN ===== */
-#countdown {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-/* ===== CINEMATIC BLOCKS ===== */
-.pi-block {
-  margin: 2rem 0;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #eee;
-}
-
-.pi-light { background: #fafafa; }
-.pi-dark { background: #111; color: #fff; border-color: #333; }
-
-.pi-block h3 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  letter-spacing: 0.03em;
-}
-
-.pi-block p {
-  color: inherit;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 600px) {
-  .glitch { font-size: 1.8rem; }
-  #countdown { font-size: 1.1rem; }
-}
-
-  .pi-left-line {
-  border-left: 2px solid #d40000;
-  padding-left: 20px;
-  margin-left: 4px;
-}
-.pi-section-bg {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-  padding: 60px 0;
-}
-  .pi-classified {
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  background: #d40000;
-  color: white;
-  padding: 2px 6px;
-  margin-bottom: 10px;
-  opacity: 0.85;
-}
-
-.section {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.pi-glitch-wrap {
-  margin-bottom: 40px;
-}
-
-.pi-block {
-  margin-bottom: 28px;
-}
-.pi-glitch-rule {
-  width: 60px;
-  height: 2px;
-  background: #d40000;
-  margin: 10px 0 14px 0;
-  opacity: 0.7;
-}
-
-</style>
-<section class="section fade-in" id="perfected-image">
-  <div class="pi-section-bg">
-    <span class="pi-classified">CLASSIFIED</span>
-    <div class="pi-left-line">
-      <div class="pi-glitch-wrap fade-in">
-        <h3 class="pi-glitch-title" data-text="Perfected Image">Perfected Image</h3>
-        <p class="pi-glitch-tagline">Perfection is mandatory.</p>
-        <div id="countdown" class="pi-countdown"></div>
-      </div>
-      <div class="pi-section">
-        <div class="pi-placeholder"></div>
-        <div class="pi-text">
-          <!-- your PI blocks here -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <!-- Text -->
-    <div class="pi-text">
-      <p>
-        In a world where identity is state‑regulated and beauty is compliance,
-        five friends discover the cost of refusing perfection.
+    <!-- My Fiction -->
+    <section class="section fade-in">
+      <h2 class="section-title">My Fiction</h2>
+      <p class="intro-text">
+        Every story I write begins with the same question: what happens when the world decides who you should be?
+        In <strong>Legal Crime</strong>, that pressure is subtle and psychological. In <strong>Perfected Image</strong>, it becomes systemic, enforced, and inescapable.
       </p>
+    </section>
 
-      <div class="pi-block">
-        <strong>Genre:</strong> Dystopian psychological thriller  
-      </div>
+    <div class="section-divider"></div>
 
-      <div class="pi-block">
-        <strong>Setting:</strong> A future world where appearance is monitored, graded, and enforced  
-      </div>
+    <!-- FINAL: Perfected Image (complete, placed inside main) -->
+    <section class="section fade-in" id="perfected-image">
+      <div class="pi-section-bg">
+        <span class="pi-classified">CLASSIFIED</span>
 
-      <div class="pi-block">
-        <strong>Core Themes:</strong> autonomy, surveillance, beauty standards, state control  
-      </div>
-    </div>
-  </div>
-</section>
-<div class="pi-glitch-rule"></div>
-  <!-- INTRO -->
-  <p class="intro-text" style="font-size:1.1rem; color:#333;">
-    Set in the year <strong>2323</strong>, <strong>Perfected Image</strong> is a dystopian psychological thriller about a world engineered to eliminate flaws — physical, emotional, and moral.
-  </p>
+        <div class="pi-left-line">
+          <!-- Glitch Title + Countdown -->
+          <div class="pi-glitch-wrap fade-in">
+            <h3 class="pi-glitch-title" data-text="Perfected Image">Perfected Image</h3>
+            <p class="pi-glitch-tagline">Perfection is mandatory.</p>
+            <div id="countdown" class="pi-countdown">Loading countdown…</div>
+          </div>
 
-  <!-- WORLD -->
-  <div class="pi-block pi-light">
-    <h3>The World</h3>
-    <p class="intro-text">
-      Humanity lives inside towering <strong>CitySpaces</strong>, governed by the <strong>Perfect Code</strong> — a doctrine dictating appearance, behaviour, and emotional expression.
-    </p>
-    <p class="intro-text" style="margin-top:1rem;">
-      At sixteen, every teenager must undergo the <strong>Perfection Trials</strong>.  
-      Success grants status.  
-      Failure leads to disappearance.
-    </p>
-  </div>
+          <!-- Cover + Text -->
+          <div class="pi-section">
+            <div class="pi-placeholder" aria-hidden="true">
+              <!-- Placeholder cover — keep empty for visual cover or replace with <img> -->
+            </div>
 
-  <!-- CLASSIFIED -->
-  <div class="pi-block pi-dark">
-    <h3>CLASSIFIED FILE: CORRECTION CENTRES</h3>
-    <p class="intro-text">
-      Officially, those who fail the Trials are sent for rehabilitation.
-    </p>
-    <p class="intro-text" style="margin-top:1rem;">
-      Unofficially… no one returns the same.  
-      Some don’t return at all.
-    </p>
-  </div>
+            <div class="pi-text">
+              <p>
+                In a world where identity is state‑regulated and beauty is compliance,
+                five friends discover the cost of refusing perfection.
+              </p>
 
-  <!-- CHARACTERS -->
-  <div class="pi-block pi-light">
-    <h3>SKEAM: The Unregistered</h3>
-    <p class="intro-text">
-      Five teenagers begin to experience something the State cannot predict, measure, or control.
-    </p>
-    <p class="intro-text" style="margin-top:1rem;">
-      Their abilities are rare. Illegal. Dangerous.  
-      Together, they form <strong>SKEAM</strong>.
-    </p>
-  </div>
+              <div class="pi-block">
+                <strong>Genre:</strong> Dystopian psychological thriller
+              </div>
 
-  <!-- THEMES -->
-  <h3 style="margin-top:2.5rem; font-size:1.3rem;">Themes</h3>
-  <ul class="sidebar-list">
-    <li>• a society obsessed with perfection</li>
-    <li>• the quiet violence of systems that treat people as assets</li>
-    <li>• the erasure of family, memory, and identity</li>
-    <li>• the power of the unpredictable — the emotional, the human</li>
-    <li>• a buried history the State cannot afford to reveal</li>
-  </ul>
+              <div class="pi-block">
+                <strong>Setting:</strong> A future world where appearance is monitored, graded, and enforced
+              </div>
 
-  <!-- ENDING -->
-  <div class="pi-block pi-dark" style="text-align:center;">
-    <p style="font-size:1.2rem; margin:0;">
-      <em>The Harvest is coming.</em>
-    </p>
-  </div>
+              <div class="pi-block">
+                <strong>Core Themes:</strong> autonomy, surveillance, beauty standards, state control
+              </div>
 
-</section>
+              <p style="margin-top:0.5rem;">
+                Set in the year <strong>2323</strong>, <em>Perfected Image</em> explores a world engineered to eliminate flaws — physical, emotional, and moral.
+              </p>
 
-<script>
-const releaseDate = new Date("2323-01-01T00:00:00").getTime();
+              <div class="pi-block">
+                <h3>The World</h3>
+                <p class="intro-text">Humanity lives inside towering <strong>CitySpaces</strong>, governed by the <strong>Perfect Code</strong> — a doctrine dictating appearance, behaviour, and emotional expression.</p>
+                <p class="intro-text" style="margin-top:1rem;">At sixteen, every teenager must undergo the <strong>Perfection Trials</strong>. Success grants status. Failure leads to disappearance.</p>
+              </div>
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = releaseDate - now;
+              <div class="pi-block pi-dark">
+                <h3>CLASSIFIED FILE: CORRECTION CENTRES</h3>
+                <p class="intro-text">Officially, those who fail the Trials are sent for rehabilitation.</p>
+                <p class="intro-text" style="margin-top:1rem;">Unofficially… no one returns the same. Some don’t return at all.</p>
+              </div>
 
-  if (diff <= 0) {
-    document.getElementById("countdown").innerHTML = "Coming Soon";
-    return;
-  }
+              <div class="pi-block">
+                <h3>SKEAM: The Unregistered</h3>
+                <p class="intro-text">Five teenagers begin to experience something the State cannot predict, measure, or control.</p>
+                <p class="intro-text" style="margin-top:1rem;">Their abilities are rare. Illegal. Dangerous. Together, they form <strong>SKEAM</strong>.</p>
+              </div>
 
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const secs = Math.floor((diff % (1000*60)) / 1000);
+              <h3 style="margin-top:2.5rem; font-size:1.3rem;">Themes</h3>
+              <ul class="sidebar-list">
+                <li>• a society obsessed with perfection</li>
+                <li>• the quiet violence of systems that treat people as assets</li>
+                <li>• the erasure of family, memory, and identity</li>
+                <li>• the power of the unpredictable — the emotional, the human</li>
+                <li>• a buried history the State cannot afford to reveal</li>
+              </ul>
 
-  document.getElementById("countdown").innerHTML =
-    `${days} days • ${hours} hours • ${mins} minutes • ${secs} seconds`;
-}, 1000);
-</script>
+              <div class="pi-block pi-dark" style="text-align:center;">
+                <p style="font-size:1.1rem; margin:0;"><em>The Harvest is coming.</em></p>
+              </div>
 
+            </div> <!-- .pi-text -->
+          </div> <!-- .pi-section -->
 
+        </div> <!-- .pi-left-line -->
+      </div> <!-- .pi-section-bg -->
 
+      <div class="pi-glitch-rule" aria-hidden="true"></div>
+    </section>
 
-    <!-- ABOUT THE AUTHOR -->
+    <div class="section-divider"></div>
+
+    <!-- About the author -->
     <section class="section">
       <h2 class="section-title">About Samiksha</h2>
-
       <p class="intro-text">
-        Samiksha Bhattacharjee is a Gen Z British author and social commentator. She began writing <strong>Legal Crime</strong> at age seven. 
-        She hopes to inspire other young people to write boldly, think independently, and challenge the narratives shaping their world.
+        Samiksha Bhattacharjee is a Gen Z British author and social commentator. She began writing <strong>Legal Crime</strong> at age seven and writes to inspire young people to think independently and write boldly.
       </p>
 
       <p class="intro-text">
-        She is also the host of <strong>Samiksha’s State of the Debate</strong>, a current‑affairs show promoting free speech and exploring the cultural and political issues impacting young people today.
+        She is also the host of <strong>Samiksha's State of the Debate</strong>, a current-affairs show exploring cultural and political issues impacting young people today.
       </p>
     </section>
 
-    <!-- CONTACT -->
+    <!-- Contact -->
     <section class="section">
       <h2 class="section-title">Contact</h2>
-
       <p class="intro-text">
-        For direct enquiries regarding <strong>Legal Crime</strong>, email:  
-        <br><a href="mailto:stateofthedebate@gmail.com">stateofthedebate@gmail.com</a>
+        For direct enquiries regarding <strong>Legal Crime</strong>, email: <br>
+        <a href="mailto:stateofthedebate@gmail.com">stateofthedebate@gmail.com</a>
       </p>
 
       <p class="intro-text" style="margin-top:1rem;">
-        For book enquiries, film/TV rights, and PR regarding <strong>Legal Crime</strong>:  
-        <br><a href="mailto:writingandeditingoffice@theconradpress.com">writingandeditingoffice@theconradpress.com</a>
+        For book enquiries, film/TV rights, and PR regarding <strong>Legal Crime</strong>:<br>
+        <a href="mailto:writingandeditingoffice@theconradpress.com">writingandeditingoffice@theconradpress.com</a>
       </p>
     </section>
 
   </main>
 
-  <!-- ====== FOOTER ====== -->
-  <footer class="footer">
-    <div>© <span id="year"></span> Samiksha Bhattacharjee. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener noreferrer">Substack</a>
-      <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener noreferrer">YouTube</a>
-      <a href="mailto:stateofthedebate@gmail.com">Contact</a>
+  <!-- Footer -->
+  <footer class="footer" style="padding:2rem 1.25rem; border-top:1px solid var(--border-soft); background:#fff;">
+    <div style="max-width:var(--max-width); margin:0 auto; display:flex; justify-content:space-between; gap:1rem; align-items:center; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Samiksha Bhattacharjee. All rights reserved.</div>
+      <div class="footer-links" style="display:flex; gap:1rem;">
+        <a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:stateofthedebate@gmail.com">Contact</a>
+      </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // Set current year in footer
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
+    // Countdown to year 2323 (example release date)
+    (function(){
+      const releaseDate = new Date("2323-01-01T00:00:00Z").getTime();
+      const el = document.getElementById('countdown');
+      function update(){
+        const now = Date.now();
+        let diff = releaseDate - now;
+        if (diff <= 0){
+          el.textContent = "Coming Soon";
+          return;
+        }
+        const days = Math.floor(diff / (1000*60*60*24));
+        diff -= days * (1000*60*60*24);
+        const hours = Math.floor(diff / (1000*60*60));
+        diff -= hours * (1000*60*60);
+        const mins = Math.floor(diff / (1000*60));
+        diff -= mins * (1000*60);
+        const secs = Math.floor(diff / 1000);
+        el.textContent = `${days.toLocaleString()} days • ${hours} hours • ${mins} minutes • ${secs} seconds`;
       }
-    });
-  }, { threshold: 0.1 });
+      update();
+      setInterval(update, 1000);
+    })();
 
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-
+    // Simple intersection observer for fade-in (keeps original behavior)
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    })();
+  </script>
 </body>
 </html>
-
