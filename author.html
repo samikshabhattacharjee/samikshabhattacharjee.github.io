@@ -378,6 +378,132 @@ header {
 .tagline {
   font-size: 0.75rem;
 }
+/* ===========================
+   PERFECTED IMAGE PLACEHOLDER COVER
+   =========================== */
+
+.pi-placeholder {
+  width: 280px; /* match Legal Crime cover width */
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  position: relative;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Full-height red vertical line */
+.pi-placeholder::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #d40000;
+}
+
+/* Bottom red line */
+.pi-placeholder::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #d40000;
+}
+
+/* Title + tagline */
+.pi-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.pi-tagline {
+  font-size: 1rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* ===========================
+   PERFECTED IMAGE LAYOUT
+   =========================== */
+
+.pi-section {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.pi-text {
+  flex: 1;
+}
+
+/* Lightened PI blocks */
+.pi-block {
+  background: #f7f7f7;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #eaeaea;
+}
+
+/* Medium parallax */
+.pi-parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 45vh; /* medium */
+  position: relative;
+  margin: 60px 0;
+  filter: brightness(0.85);
+}
+
+/* ===========================
+   SECTION DIVIDERS
+   =========================== */
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #dcdcdc, transparent);
+  margin: 60px 0;
+}
+
+/* ===========================
+   FADE-IN ANIMATIONS
+   =========================== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   HEADER REFINEMENT
+   =========================== */
+
+.author-header {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,1));
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
 
   </style>
 </head>
@@ -502,6 +628,18 @@ header {
 
       </div>
     </section>
+<div class="section-divider"></div>
+
+<section class="section fade-in">
+  <h2 class="section-title">My Fiction</h2>
+  <p class="intro-text">
+    Every story I write begins with the same question: what happens when the world decides who you should be?
+    In <strong>Legal Crime</strong>, that pressure is subtle and psychological.
+    In <strong>Perfected Image</strong>, it becomes systemic, enforced, and inescapable.
+  </p>
+</section>
+
+<div class="section-divider"></div>
 
   <!-- ========================= -->
 <!--  PERFECTED IMAGE TEASER   -->
@@ -628,6 +766,40 @@ header {
       <div id="countdown">Loading countdown…</div>
     </div>
   </div>
+<section class="section fade-in">
+  <h2 class="section-title">Perfected Image</h2>
+
+  <div class="pi-section">
+    <!-- Placeholder Cover -->
+    <div class="pi-placeholder">
+      <div>
+        <div class="pi-title">Perfected Image</div>
+        <div class="pi-tagline">Perfection is mandatory.</div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="pi-text">
+      <p>
+        In a world where identity is state‑regulated and beauty is compliance,
+        one girl discovers the cost of refusing perfection.
+      </p>
+
+      <div class="pi-block">
+        <strong>Genre:</strong> Dystopian psychological thriller  
+      </div>
+
+      <div class="pi-block">
+        <strong>Setting:</strong> A future Britain where appearance is monitored, graded, and enforced  
+      </div>
+
+      <div class="pi-block">
+        <strong>Core Themes:</strong> autonomy, surveillance, beauty standards, state control  
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- INTRO -->
   <p class="intro-text" style="font-size:1.1rem; color:#333;">
