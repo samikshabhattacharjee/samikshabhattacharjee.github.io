@@ -388,6 +388,28 @@ main {
   opacity: 1 !important;
   transform: none !important;
 }
+    /* ====== MOBILE NAV FIX ====== */
+@media (max-width: 600px) {
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 1rem; /* smaller gaps */
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar a {
+    font-size: 0.9rem; /* slightly smaller text */
+    padding: 0.2rem 0;
+  }
+
+  .navbar li {
+    flex: 1 1 calc(50% - 1rem); 
+    /* each item takes half the row on mobile */
+    text-align: left;
+  }
+}
+
 
 </style>
 </head>
