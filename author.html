@@ -690,9 +690,8 @@ header {
 
 </section>
 
-<!-- COUNTDOWN SCRIPT -->
 <script>
-const releaseDate = new Date("2026-12-01T00:00:00").getTime();
+const releaseDate = new Date("2323-01-01T00:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
@@ -706,11 +705,13 @@ setInterval(() => {
   const days = Math.floor(diff / (1000*60*60*24));
   const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
   const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const secs = Math.floor((diff % (1000*60)) / 1000);
 
   document.getElementById("countdown").innerHTML =
-    `${days} days • ${hours} hours • ${mins} minutes`;
+    `${days} days • ${hours} hours • ${mins} minutes • ${secs} seconds`;
 }, 1000);
 </script>
+
 
 
 
