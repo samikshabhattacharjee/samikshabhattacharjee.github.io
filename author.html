@@ -9,116 +9,506 @@
      crossorigin="anonymous"></script>
   <title>Author — Samiksha Bhattacharjee</title>
 
-<!-- ===== GLOBAL STYLING ===== -->
-<style>
+  <style>
+    :root {
+      --bg-main: #ffffff;
+      --bg-soft: #fafafa;
+      --text-main: #111111;
+      --text-muted: #555555;
+      --accent: #c62828;
+      --border-soft: #e5e5e5;
+      --max-width: 960px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-/* ===== BRAND VARIABLES ===== */
-:root {
-  --brand-red: #d40000;
-  --text-dark: #111;
-  --text-light: #f5f5f5;
-  --border-soft: rgba(255,255,255,0.08);
-  --noise: url('https://grainy-gradients.vercel.app/noise.svg');
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* ====== NAVBAR ====== */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .navbar ul {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .navbar a {
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 0.25rem 0;
+      transition: color 0.2s ease;
+    }
+
+    .navbar a:hover { color: var(--accent); }
+
+    /* ====== PAGE LAYOUT ====== */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .section { margin-bottom: 3rem; }
+
+    .section-title {
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    /* ====== BOOK LAYOUT ====== */
+    .book-layout {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .book-cover {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .book-cover img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .book-content {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .sidebar-list {
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* ====== BUY BOX ====== */
+    .buy-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      background: var(--bg-soft);
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+
+    .buy-button:hover { opacity: 0.9; }
+
+    /* ====== CARDS ====== */
+    .articles-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .article-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      background: #fff;
+    }
+
+    .article-excerpt {
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .article-outlet {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #777;
+    }
+
+    /* ====== HEADER ====== */
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 2rem 1.25rem;
 }
 
-/* ===== RESET ===== */
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: #fafafa;
-  background-image: var(--noise);
-  background-size: 300px;
-  color: #222;
-  line-height: 1.6;
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-/* ===== NAV BAR ===== */
-nav {
+.logo img {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.header-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.header-text h1 {
+  margin: 0.25rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.header-text p {
+  margin: 0.25rem 0;
+  color: var(--text-muted);
+}
+
+.tagline {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ====== MOBILE HEADER FIX ====== */
+@media (max-width: 600px) {
+  .header-inner {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .header-text h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 720px) {
+      .navbar ul { flex-wrap: wrap; row-gap: 0.5rem; }
+      .section-title { font-size: 1.6rem; }
+    }
+
+    /* ====== MOBILE NAV FIX ====== */
+@media (max-width: 600px) {
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 1rem; /* smaller gaps */
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar a {
+    font-size: 0.9rem; /* slightly smaller text */
+    padding: 0.2rem 0;
+  }
+
+  .navbar li {
+    flex: 1 1 calc(50% - 1rem); 
+    /* each item takes half the row on mobile */
+    text-align: left;
+  }
+}
+    /* ====== AUTHOR PAGE BRAND HEADER ====== */
+.author-brand-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 1.5rem 1.25rem;
+}
+
+.author-brand-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.author-brand-logo {
+  width: 110px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.author-brand-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.author-brand-name {
+  margin: 0.25rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.author-brand-role {
+  margin: 0.25rem 0;
+  color: var(--text-muted);
+}
+
+.tagline {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ====== MOBILE VERSION ====== */
+@media (max-width: 600px) {
+  .author-brand-inner {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .author-brand-logo {
+    width: 90px;
+    margin-bottom: 0.75rem;
+  }
+
+  .author-brand-name {
+    font-size: 1.4rem;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+  }
+}
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
   position: sticky;
   top: 0;
   z-index: 999;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 0.8rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-
-nav a {
+.navbar a {
+  font-weight: 600;
+  color: var(--text-main);
   text-decoration: none;
-  color: #111;
-  margin-left: 1.2rem;
-  font-weight: 500;
-  transition: 0.2s;
+  padding: 0.4rem 0.2rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
-nav a:hover {
-  color: var(--brand-red);
+.navbar a:hover {
+  color: var(--accent);
+  background: rgba(198,40,40,0.08);
+}
+@media (max-width: 600px) {
+  .navbar ul {
+    gap: 0.5rem 0.75rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .navbar li {
+    flex: 1 1 45%;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.2rem;
+    text-align: center;
+    display: block;
+    background: #fafafa;
+    border: 1px solid var(--border-soft);
+  }
+
+  .navbar a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+.author-brand-header {
+  padding: 1.25rem 1rem;
 }
 
-/* ===== DARK HEADER ===== */
-.header {
-  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-  background-image: var(--noise);
-  background-size: 300px;
-  padding: 4rem 1.5rem 5rem;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid #222;
+.author-brand-name {
+  font-size: 1.4rem;
 }
 
-/* faint glitch shimmer */
-.header h1 {
-  font-size: 2.6rem;
-  margin: 0;
-  position: relative;
-  animation: glitch-flicker 3s infinite;
+.author-brand-role {
+  font-size: 0.95rem;
 }
 
-@keyframes glitch-flicker {
-  0%, 97%, 100% { text-shadow: none; }
-  98% { text-shadow: 2px 0 var(--brand-red); }
-  99% { text-shadow: -2px 0 cyan; }
+.tagline {
+  font-size: 0.75rem;
 }
 
-.header p {
-  margin-top: 0.8rem;
-  font-size: 1.1rem;
-  opacity: 0.85;
-}
+  </style>
+</head>
 
-/* ===== SECTION WRAPPER ===== */
-.section {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-}
+<body>
+<header>
+<header class="author-brand-header">
+  <div class="author-brand-inner">
+    <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" 
+         alt="Samiksha's State of the Debate logo" class="author-brand-logo">
 
-/* ===== CINEMATIC CARDS ===== */
-.card {
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
+    <div class="author-brand-text">
+      <div class="tagline">CULTURE · ECONOMICS · POLITICS · THE TRUTH</div>
+      <h1 class="author-brand-name">Samiksha Bhattacharjee</h1>
+      <p class="author-brand-role">Author of <em>Legal Crime</em> · Host of <strong>Samiksha’s State of the Debate</strong></p>
+    </div>
+  </div>
+</header>
 
-.card-dark {
-  background: #111;
-  color: #fff;
-  border-color: #333;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="external-commentary.html">External Commentary</a></li>
+      <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
+      <li><a href="author.html">Author</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://www.youtube.com/@SamikshasStateofthedebate" target="_blank">Podcast</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-.card h2, .card-dark h2 {
-  margin-top: 0;
-  font-size: 1.6rem;
-}
+  <main>
 
-/* ===== PARALLAX BANNER ===== */
+    <!-- PAGE TITLE -->
+    <section class="section">
+      <h1 class="section-title">Author</h1>
+      <p class="intro-text">
+        British author of <strong>Legal Crime</strong> and the upcoming dystopian thriller <strong>Perfected Image</strong>.  
+        My fiction blends emotional realism with high‑stakes storytelling, exploring identity, freedom, and the systems shaping Gen Z.
+      </p>
+    </section>
+
+    <!-- LEGAL CRIME -->
+    <section class="section">
+      <h2 class="section-title">Legal Crime</h2>
+
+      <div class="book-layout">
+
+        <div class="book-cover">
+          <img src="images/legal-crime.png"  alt="Legal Crime Book Cover">
+        </div>
+
+        <div class="book-content">
+
+          <p class="intro-text">
+            Written at thirteen, <strong>Legal Crime</strong> is a coming‑of‑age psychological thriller that captures the raw intensity of adolescence — the pressure to fit in, the fear of standing out, and the danger of running from the truth.
+          </p>
+
+          <p class="intro-text">
+            The story follows <strong>sixteen‑year‑old Fiona Watson</strong>, who runs away from home believing she can escape the expectations crushing her. But the world outside is not the freedom she imagined.  
+            As Fiona navigates unfamiliar streets, fractured friendships, and the consequences of impulsive decisions, she becomes entangled in secrets that force her to confront who she really is — and who she is becoming.
+          </p>
+
+          <p class="intro-text">
+            Beneath the surface of a seemingly ordinary teenage life lies a darker reality shaped by manipulation, hidden motives, and the quiet violence of growing up too fast.  
+            <strong>Legal Crime</strong> explores:
+          </p>
+
+          <ul class="sidebar-list">
+            <li>• the weight of peer pressure</li>
+            <li>• the search for identity</li>
+            <li>• the danger of secrets</li>
+            <li>• the cost of independence</li>
+            <li>• the moment innocence fractures</li>
+          </ul>
+
+          <div class="buy-box">
+            <h3 style="margin-top:0; font-weight:700;">Buy a Signed & Personalised Copy</h3>
+            <p class="intro-text" style="margin-bottom:1rem;">
+              Directly supports the author.  
+              Use code <strong>samiksha25</strong> for <strong>25% off</strong>.
+            </p>
+            <a href="https://buy.stripe.com/cNicN5d5J4pfbgD6KQ8so00" target="_blank" class="buy-button">
+              Buy Now →
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <h3 style="margin-top:3rem; font-weight:700;">Blog Tour</h3>
+      <ul class="sidebar-list">
+        <li><a href="#">Ceri’s Little Blog — Review</a></li>
+        <li><a href="#">Little Bird Book Blog — Spotlight</a></li>
+        <li><a href="#">Featz Reviews — Review</a></li>
+        <li><a href="#">Emma’s Biblio Treasures — Review</a></li>
+        <li><a href="#">Lucy Rambles — Guest Feature</a></li>
+        <li><a href="#">The Book Reader — Review</a></li>
+        <li><a href="#">Hannah Loves To Read — Review</a></li>
+        <li><a href="#">Mai’s Musings — Review</a></li>
+        <li><a href="#">Portable Magic — Extract</a></li>
+        <li><a href="#">If These Books Could Talk — Review</a></li>
+      </ul>
+
+      <h3 style="margin-top:2.5rem; font-weight:700;">Selected Reviews</h3>
+      <div class="articles-list">
+
+        <article class="article-card">
+          <p class="article-excerpt">
+            “A lovely tale of friendship draped in an adventure story, with the theme clearly about identity.”
+          </p>
+          <div class="article-outlet">— Whispering Stories</div>
+        </article>
+
+        <article class="article-card">
+          <p class="article-excerpt">
+            “I could picture the characters and visualise the story… she ties up the ends beautifully.”
+          </p>
+          <div class="article-outlet">— Betanda Shanam, Reedsy Discovery</div>
+        </article>
+
+      </div>
+    </section>
+
+  <!-- ========================= -->
+<!--  PERFECTED IMAGE TEASER   -->
+<!-- ========================= -->
+
+<style>
+/* ===== PARALLAX BACKGROUND ===== */
 .pi-parallax {
   background: url('https://images.unsplash.com/photo-1526401485004-2fda9f6d2a8c?auto=format&fit=crop&w=1400&q=80') center/cover fixed;
   padding: 5rem 1.5rem;
@@ -197,123 +587,109 @@ nav a:hover {
   letter-spacing: 0.05em;
 }
 
-/* ===== SCROLL ANIMATIONS ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.8s ease-out;
+/* ===== CINEMATIC BLOCKS ===== */
+.pi-block {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #eee;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+.pi-light { background: #fafafa; }
+.pi-dark { background: #111; color: #fff; border-color: #333; }
+
+.pi-block h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  background: #0d0d0d;
-  color: #ccc;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  margin-top: 4rem;
-  border-top: 1px solid #222;
+.pi-block p {
+  color: inherit;
 }
 
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .glitch { font-size: 1.8rem; }
+  #countdown { font-size: 1.1rem; }
+}
 </style>
-</head>
 
-<body>
+<section class="section" id="perfected-image">
 
-<!-- ===== NAV BAR ===== -->
-<nav>
-  <div style="font-weight:700;">SB</div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="author.html" style="color:var(--brand-red);">Author</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-<!-- ===== DARK HEADER ===== -->
-<header class="header">
-  <h1>Samiksha Bhattacharjee</h1>
-  <p>Author of <em>Legal Crime</em> & <em>Perfected Image</em></p>
-</header>
-
-<!-- ===== LEGAL CRIME (LIGHT CARD) ===== -->
-<section class="section fade-in">
-  <div class="card">
-    <h2>Legal Crime</h2>
-    <p>A sharp, unsettling exploration of power, institutions, and the quiet violence hidden inside systems we trust.</p>
-    <blockquote style="margin:1.5rem 0; font-style:italic; opacity:0.8;">
-      “Some crimes are illegal. Others are simply approved.”
-    </blockquote>
-    <a href="#" style="
-      display:inline-block;
-      padding:0.7rem 1.4rem;
-      background:var(--brand-red);
-      color:#fff;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:600;
-    ">Buy Now</a>
-  </div>
-</section>
-
-<!-- ===== PERFECTED IMAGE (DARK CINEMATIC) ===== -->
-<section class="section fade-in">
-
+  <!-- PARALLAX + GLITCH + COUNTDOWN -->
   <div class="pi-parallax">
     <div style="position:relative; z-index:2;">
       <h2 class="glitch" data-text="Perfected Image">Perfected Image</h2>
       <p style="margin-top:1rem; font-size:1.1rem; opacity:0.85;">
         <em>Perfection is mandatory. Imperfection is rebellion.</em>
       </p>
+
       <div id="countdown">Loading countdown…</div>
     </div>
   </div>
 
-  <div class="card-dark">
-    <h2>The World</h2>
-    <p>Humanity lives inside towering <strong>CitySpaces</strong>, governed by the <strong>Perfect Code</strong> — a doctrine dictating appearance, behaviour, and emotional expression.</p>
-    <p style="margin-top:1rem;">At sixteen, every teenager must undergo the <strong>Perfection Trials</strong>. Success grants status. Failure leads to disappearance.</p>
+  <!-- INTRO -->
+  <p class="intro-text" style="font-size:1.1rem; color:#333;">
+    Set in the year <strong>2323</strong>, <strong>Perfected Image</strong> is a dystopian psychological thriller about a world engineered to eliminate flaws — physical, emotional, and moral.
+  </p>
+
+  <!-- WORLD -->
+  <div class="pi-block pi-light">
+    <h3>The World</h3>
+    <p class="intro-text">
+      Humanity lives inside towering <strong>CitySpaces</strong>, governed by the <strong>Perfect Code</strong> — a doctrine dictating appearance, behaviour, and emotional expression.
+    </p>
+    <p class="intro-text" style="margin-top:1rem;">
+      At sixteen, every teenager must undergo the <strong>Perfection Trials</strong>.  
+      Success grants status.  
+      Failure leads to disappearance.
+    </p>
   </div>
 
-  <div class="card" style="margin-top:2rem;">
-    <h2>CLASSIFIED FILE: CORRECTION CENTRES</h2>
-    <p>Officially, those who fail the Trials are sent for rehabilitation.</p>
-    <p style="margin-top:1rem;">Unofficially… no one returns the same. Some don’t return at all.</p>
+  <!-- CLASSIFIED -->
+  <div class="pi-block pi-dark">
+    <h3>CLASSIFIED FILE: CORRECTION CENTRES</h3>
+    <p class="intro-text">
+      Officially, those who fail the Trials are sent for rehabilitation.
+    </p>
+    <p class="intro-text" style="margin-top:1rem;">
+      Unofficially… no one returns the same.  
+      Some don’t return at all.
+    </p>
   </div>
 
-  <div class="card-dark" style="margin-top:2rem;">
-    <h2>SKEAM: The Unregistered</h2>
-    <p>Five teenagers begin to experience something the State cannot predict, measure, or control.</p>
-    <p style="margin-top:1rem;">Their abilities are rare. Illegal. Dangerous. Together, they form <strong>SKEAM</strong>.</p>
+  <!-- CHARACTERS -->
+  <div class="pi-block pi-light">
+    <h3>SKEAM: The Unregistered</h3>
+    <p class="intro-text">
+      Five teenagers begin to experience something the State cannot predict, measure, or control.
+    </p>
+    <p class="intro-text" style="margin-top:1rem;">
+      Their abilities are rare. Illegal. Dangerous.  
+      Together, they form <strong>SKEAM</strong>.
+    </p>
   </div>
 
-  <div class="card" style="margin-top:2rem;">
-    <h2>Themes</h2>
-    <ul>
-      <li>a society obsessed with perfection</li>
-      <li>the quiet violence of systems that treat people as assets</li>
-      <li>the erasure of family, memory, and identity</li>
-      <li>the power of the unpredictable — the emotional, the human</li>
-      <li>a buried history the State cannot afford to reveal</li>
-    </ul>
-  </div>
+  <!-- THEMES -->
+  <h3 style="margin-top:2.5rem; font-size:1.3rem;">Themes</h3>
+  <ul class="sidebar-list">
+    <li>• a society obsessed with perfection</li>
+    <li>• the quiet violence of systems that treat people as assets</li>
+    <li>• the erasure of family, memory, and identity</li>
+    <li>• the power of the unpredictable — the emotional, the human</li>
+    <li>• a buried history the State cannot afford to reveal</li>
+  </ul>
 
-  <div class="card-dark" style="margin-top:2rem; text-align:center;">
-    <p style="font-size:1.2rem;"><em>The Harvest is coming.</em></p>
+  <!-- ENDING -->
+  <div class="pi-block pi-dark" style="text-align:center;">
+    <p style="font-size:1.2rem; margin:0;">
+      <em>The Harvest is coming.</em>
+    </p>
   </div>
 
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <p>© 2026 Samiksha Bhattacharjee</p>
-</footer>
-
-<!-- ===== COUNTDOWN SCRIPT ===== -->
 <script>
 const releaseDate = new Date("2323-01-01T00:00:00").getTime();
 
@@ -336,21 +712,39 @@ setInterval(() => {
 }, 1000);
 </script>
 
-<!-- ===== SCROLL ANIMATION SCRIPT ===== -->
-<script>
-const elements = document.querySelectorAll('.fade-in');
 
-function reveal() {
-  const trigger = window.innerHeight * 0.85;
-  elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < trigger) el.classList.add('visible');
-  });
-}
 
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal);
-</script>
+
+    <!-- ABOUT THE AUTHOR -->
+    <section class="section">
+      <h2 class="section-title">About Samiksha</h2>
+
+      <p class="intro-text">
+        Samiksha Bhattacharjee is a Gen Z British author and social commentator. She began writing <strong>Legal Crime</strong> at age seven and published it at thirteen.  
+        She hopes to inspire other young people to write boldly, think independently, and challenge the narratives shaping their world.
+      </p>
+
+      <p class="intro-text">
+        She is also the host of <strong>Samiksha’s State of the Debate</strong>, a current‑affairs show promoting free speech and exploring the cultural and political issues impacting young people today.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section">
+      <h2 class="section-title">Contact</h2>
+
+      <p class="intro-text">
+        For direct enquiries regarding <strong>Legal Crime</strong>, email:  
+        <br><a href="mailto:stateofthedebate@gmail.com">stateofthedebate@gmail.com</a>
+      </p>
+
+      <p class="intro-text" style="margin-top:1rem;">
+        For book enquiries, film/TV rights, and PR regarding <strong>Legal Crime</strong>:  
+        <br><a href="mailto:writingandeditingoffice@theconradpress.com">writingandeditingoffice@theconradpress.com</a>
+      </p>
+    </section>
+
+  </main>
 
 </body>
 </html>
