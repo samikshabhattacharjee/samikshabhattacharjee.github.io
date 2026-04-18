@@ -503,39 +503,176 @@ header {
       </div>
     </section>
 
-   <section class="section">
-  <h2 class="section-title">Upcoming Novel: Perfected Image (Working Title)</h2>
+  <!-- ========================= -->
+<!--  PERFECTED IMAGE TEASER   -->
+<!-- ========================= -->
 
-  <p class="intro-text" style="font-size:1.1rem; font-weight:600; color:#111;">
-    <em>In a world where perfection is mandatory, imperfection is rebellion.</em>
+<style>
+/* ===== PARALLAX BACKGROUND ===== */
+.pi-parallax {
+  background: url('https://images.unsplash.com/photo-1526401485004-2fda9f6d2a8c?auto=format&fit=crop&w=1400&q=80') center/cover fixed;
+  padding: 5rem 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.pi-parallax::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  border-radius: 12px;
+}
+
+/* ===== GLITCH TITLE ===== */
+.glitch {
+  font-size: 2.4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.05em;
+  animation: glitch-skew 1.5s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.glitch::before {
+  color: #ff003c;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: #00fff9;
+  animation: glitch-anim2 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  50% { transform: skew(2deg); }
+  100% { transform: skew(-2deg); }
+}
+
+/* ===== COUNTDOWN ===== */
+#countdown {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ===== CINEMATIC BLOCKS ===== */
+.pi-block {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.pi-light { background: #fafafa; }
+.pi-dark { background: #111; color: #fff; border-color: #333; }
+
+.pi-block h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+}
+
+.pi-block p {
+  color: inherit;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .glitch { font-size: 1.8rem; }
+  #countdown { font-size: 1.1rem; }
+}
+</style>
+
+<section class="section" id="perfected-image">
+
+  <!-- PARALLAX + GLITCH + COUNTDOWN -->
+  <div class="pi-parallax">
+    <div style="position:relative; z-index:2;">
+      <h2 class="glitch" data-text="Perfected Image">Perfected Image</h2>
+      <p style="margin-top:1rem; font-size:1.1rem; opacity:0.85;">
+        <em>Perfection is mandatory. Imperfection is rebellion.</em>
+      </p>
+
+      <div id="countdown">Loading countdown…</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <p class="intro-text" style="font-size:1.1rem; color:#333;">
+    Set in the year <strong>2323</strong>, <strong>Perfected Image</strong> is a dystopian psychological thriller about a world engineered to eliminate flaws — physical, emotional, and moral.
   </p>
 
-  <p class="intro-text">
-    Set in the year <strong>2323</strong>, <strong>Perfected Image</strong> is a dystopian psychological thriller about a society engineered to eliminate flaws — physical, emotional, and moral. Perfection isn’t a goal. It’s the law.
-  </p>
-
-  <div style="margin:2rem 0; padding:1.5rem; background:#fafafa; border:1px solid #eee; border-radius:12px;">
-    <h3 style="margin-top:0; font-size:1.2rem;">The World</h3>
+  <!-- WORLD -->
+  <div class="pi-block pi-light">
+    <h3>The World</h3>
     <p class="intro-text">
-      Humanity lives inside towering <strong>CitySpaces</strong>, governed by the <strong>Perfect Code</strong> — a doctrine that dictates appearance, behaviour, and emotional expression. At sixteen, every teenager must undergo the <strong>Perfection Trials</strong>. Success grants status. Failure leads to disappearance.
+      Humanity lives inside towering <strong>CitySpaces</strong>, governed by the <strong>Perfect Code</strong> — a doctrine dictating appearance, behaviour, and emotional expression.
+    </p>
+    <p class="intro-text" style="margin-top:1rem;">
+      At sixteen, every teenager must undergo the <strong>Perfection Trials</strong>.  
+      Success grants status.  
+      Failure leads to disappearance.
     </p>
   </div>
 
-  <div style="margin:2rem 0; padding:1.5rem; background:#fff; border:1px solid #eee; border-radius:12px;">
-    <h3 style="margin-top:0; font-size:1.2rem;">The Secret</h3>
+  <!-- CLASSIFIED -->
+  <div class="pi-block pi-dark">
+    <h3>CLASSIFIED FILE: CORRECTION CENTRES</h3>
     <p class="intro-text">
-      Officially, those who fail the Trials are sent to <strong>Correction Centres</strong> for rehabilitation. Unofficially… no one returns the same. Some don’t return at all.
+      Officially, those who fail the Trials are sent for rehabilitation.
+    </p>
+    <p class="intro-text" style="margin-top:1rem;">
+      Unofficially… no one returns the same.  
+      Some don’t return at all.
     </p>
   </div>
 
-  <div style="margin:2rem 0; padding:1.5rem; background:#fafafa; border:1px solid #eee; border-radius:12px;">
-    <h3 style="margin-top:0; font-size:1.2rem;">The Characters</h3>
+  <!-- CHARACTERS -->
+  <div class="pi-block pi-light">
+    <h3>SKEAM: The Unregistered</h3>
     <p class="intro-text">
-      Five teenagers begin to experience something the State cannot predict, measure, or control. Their abilities are rare. Illegal. Dangerous. Together, they form <strong>SKEAM</strong> — a group bound by secrets, hunted for what they are becoming.
+      Five teenagers begin to experience something the State cannot predict, measure, or control.
+    </p>
+    <p class="intro-text" style="margin-top:1rem;">
+      Their abilities are rare. Illegal. Dangerous.  
+      Together, they form <strong>SKEAM</strong>.
     </p>
   </div>
 
-  <h3 style="margin-top:2rem; font-size:1.2rem;">Themes</h3>
+  <!-- THEMES -->
+  <h3 style="margin-top:2.5rem; font-size:1.3rem;">Themes</h3>
   <ul class="sidebar-list">
     <li>• a society obsessed with perfection</li>
     <li>• the quiet violence of systems that treat people as assets</li>
@@ -544,10 +681,37 @@ header {
     <li>• a buried history the State cannot afford to reveal</li>
   </ul>
 
-  <p class="intro-text" style="margin-top:2rem; font-weight:600; font-size:1.1rem;">
-    <em>The Harvest is coming.</em>
-  </p>
+  <!-- ENDING -->
+  <div class="pi-block pi-dark" style="text-align:center;">
+    <p style="font-size:1.2rem; margin:0;">
+      <em>The Harvest is coming.</em>
+    </p>
+  </div>
+
 </section>
+
+<!-- COUNTDOWN SCRIPT -->
+<script>
+const releaseDate = new Date("2026-12-01T00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = releaseDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML = "Coming Soon";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+
+  document.getElementById("countdown").innerHTML =
+    `${days} days • ${hours} hours • ${mins} minutes`;
+}, 1000);
+</script>
+
 
 
     <!-- ABOUT THE AUTHOR -->
