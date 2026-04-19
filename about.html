@@ -1,12 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PAGE TITLE — Samiksha Bhattacharjee</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About – Samiksha Bhattacharjee</title>
+
+  <style>
+    :root{
+      --bg-main:#ffffff;
+      --bg-soft:#fafafa;
+      --text-main:#111111;
+      --text-muted:#555555;
+      --accent:#c62828;
+      --border-soft:#e5e5e5;
+      --max-width:960px;
+      --font-main:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:var(--font-main);
+      background:var(--bg-main);
+      color:var(--text-main);
+      line-height:1.6;
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2rem 1.25rem 3rem;
+    }
+
+    .section{margin-bottom:3rem;}
+    .section-title{
+      font-size:2rem;
+      margin-bottom:0.75rem;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+    }
+    .intro-text{
+      font-size:1rem;
+      color:var(--text-muted);
+      max-width:720px;
+    }
+
+    /* Header */
+    .author-brand-header{
+      background:#fafafa;
+      border-bottom:1px solid var(--border-soft);
+      padding:2rem 1.25rem;
+    }
+    .author-brand-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .author-brand-logo{
+      width:110px;
+      border-radius:8px;
+    }
+    .author-brand-text{
+      flex:1;
+      min-width:240px;
+    }
+    .tagline{
+      font-size:0.85rem;
+      letter-spacing:0.1em;
+      color:var(--text-muted);
+      margin-bottom:0.25rem;
+    }
+    .author-brand-name{
+      font-size:1.8rem;
+      margin:0;
+    }
+    .author-brand-role{
+      margin-top:0.25rem;
+      color:var(--text-muted);
+    }
+
+    /* Navbar */
+    nav.navbar{
+      background:#ffffff;
+      border-bottom:1px solid var(--border-soft);
+      box-shadow:0 2px 6px rgba(0,0,0,0.04);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+    nav.navbar ul{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0.75rem 1.25rem;
+      display:flex;
+      gap:1.25rem;
+      list-style:none;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    nav.navbar a{
+      font-weight:600;
+      color:var(--text-main);
+      text-decoration:none;
+      padding:0.35rem 0.2rem;
+      border-radius:4px;
+      transition:all .15s ease;
+    }
+    nav.navbar a:hover{
+      color:var(--accent);
+      background:rgba(198,40,40,0.06);
+    }
+
+    /* Support button */
+    .nav-support{
+      color:var(--accent) !important;
+      font-weight:700;
+      border:1px solid var(--accent);
+      padding:6px 12px;
+      border-radius:4px;
+    }
+    .nav-support:hover{
+      background:var(--accent);
+      color:#fff !important;
+    }
+
+    /* Mobile nav */
+    @media (max-width: 600px) {
+      .navbar ul {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem 0.75rem;
+        padding: 0.75rem 0.5rem;
+      }
+
+      .navbar li {
+        flex: 1 1 45%;
+      }
+
+      .navbar a {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.2rem;
+        text-align: center;
+        display: block;
+        background: #fafafa;
+        border: 1px solid var(--border-soft);
+      }
+
+      .navbar a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+    }
+
+    /* About page blocks */
+    .about-block{
+      margin-bottom:2.5rem;
+      max-width:760px;
+    }
+    .about-block h2{
+      font-size:1.5rem;
+      margin-bottom:0.5rem;
+    }
+    .about-block p{
+      color:var(--text-muted);
+      margin-bottom:1rem;
+    }
+
+    .about-cta{
+      margin-top:2rem;
+      padding:1.5rem;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:#fafafa;
+      text-align:center;
+    }
+    .about-cta a{
+      display:inline-block;
+      margin-top:0.5rem;
+      padding:0.75rem 1.5rem;
+      background:var(--accent);
+      color:#fff;
+      border-radius:6px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .about-cta a:hover{
+      opacity:0.9;
+    }
+
+  </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
+  <header class="author-brand-header">
+    <div class="author-brand-inner">
+      <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" alt="Samiksha's logo" class="author-brand-logo">
+      <div class="author-brand-text">
+        <div class="tagline">CULTURE · ECONOMICS · POLITICS · THE TRUTH</div>
+        <h1 class="author-brand-name">Samiksha Bhattacharjee</h1>
+        <p class="author-brand-role">Author of <em>Legal Crime</em> · Host of <strong>Samiksha's State of the Debate</strong></p>
+      </div>
+    </div>
+  </header>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -16,16 +216,63 @@
       <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
       <li><a href="author.html">Author</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank">Podcast</a></li>
+      <li><a href="https://www.youtube.com/channel/UCka378q9pGei337HfwEwinA?sub_confirmation=1">YouTube</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="support.html" class="nav-support">Support</a></li>
     </ul>
   </nav>
 
   <main>
+
     <section class="section">
-      <h1 class="section-title">PAGE TITLE</h1>
-      <p>Your content goes here.</p>
+      <h1 class="section-title">About</h1>
+      <p class="intro-text">
+        I write about culture, economics, politics, and the uncomfortable truths that shape modern life.  
+        My work blends analysis with narrative — always grounded, always direct, always honest.
+      </p>
     </section>
+
+    <div class="about-block">
+      <h2>Who I Am</h2>
+      <p>
+        I’m a British author, commentator, and host of <strong>Samiksha’s State of the Debate</strong>.  
+        My fiction — including <em>Legal Crime</em> and the upcoming <em>Perfected Image</em> — explores power, identity, and the systems that govern us.  
+        My commentary focuses on the cultural and political forces reshaping the UK and beyond.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h2>What I Do</h2>
+      <p>
+        I write weekly analysis, long‑form essays, and investigative commentary.  
+        I speak on issues ranging from higher education to free speech to the economics of modern Britain.  
+        My work aims to cut through noise and get to the truth — even when it’s uncomfortable.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h2>My Work</h2>
+      <p>
+        My writing has appeared across commentary platforms, podcasts, and independent media.  
+        I also run a growing Substack community where I publish exclusive deep dives, behind‑the‑scenes insights, and reader‑requested content.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h2>Why I Write</h2>
+      <p>
+        Because the world is changing fast — and too many conversations are happening in the dark.  
+        I believe in clarity, honesty, and saying the quiet part out loud.  
+        My goal is simple: to make sense of the world, and to help others do the same.
+      </p>
+    </div>
+
+    <div class="about-cta">
+      <h3>Want to support the work?</h3>
+      <p class="intro-text">You can buy the book or join the Substack community.</p>
+      <a href="support.html">Support the Work →</a>
+    </div>
+
   </main>
 
 </body>
