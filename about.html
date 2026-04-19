@@ -191,6 +191,49 @@
       opacity:0.9;
     }
 
+    /* Pull quotes */
+    .pull-quotes{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1.5rem;
+      margin:2.5rem 0;
+      max-width:760px;
+    }
+    .pull-quote{
+      flex:1 1 220px;
+      border-left:3px solid var(--accent);
+      padding-left:1rem;
+      font-style:italic;
+      color:var(--text-muted);
+    }
+
+    /* Press photos */
+    .press-photos-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1.5rem;
+      margin-top:1.5rem;
+      max-width:760px;
+    }
+    .press-photo{
+      flex:1 1 220px;
+    }
+    .press-photo img{
+      width:100%;
+      border-radius:10px;
+      border:1px solid var(--border-soft);
+    }
+    .press-photo figcaption{
+      font-size:0.85rem;
+      color:var(--text-muted);
+      margin-top:0.35rem;
+    }
+    @media (max-width:600px){
+      .press-photos-grid{
+        flex-direction:column;
+      }
+    }
+
   </style>
 </head>
 
@@ -227,45 +270,116 @@
     <section class="section">
       <h1 class="section-title">About</h1>
       <p class="intro-text">
-        I write about culture, economics, politics, and the uncomfortable truths that shape modern life.  
-        My work blends analysis with narrative — always grounded, always direct, always honest.
+        I’m a British author and commentator writing about culture, economics, politics, and the pressures shaping Gen Z.  
+        My work blends analysis with narrative — grounded, direct, and unapologetically honest.
       </p>
     </section>
 
     <div class="about-block">
-      <h2>Who I Am</h2>
+      <h2>About Me</h2>
       <p>
-        I’m a British author, commentator, and host of <strong>Samiksha’s State of the Debate</strong>.  
-        My fiction — including <em>Legal Crime</em> and the upcoming <em>Perfected Image</em> — explores power, identity, and the systems that govern us.  
-        My commentary focuses on the cultural and political forces reshaping the UK and beyond.
+        I’m Samiksha Bhattacharjee — a British author, commentator, and host of <strong>Samiksha’s State of the Debate</strong>.  
+        I write about culture, economics, politics, and free speech, with a focus on the realities facing young people in modern Britain.
+      </p>
+      <p>
+        My work sits somewhere between analysis and storytelling: shaped by lived experience, grounded in real-world consequences, and driven by a belief that young people deserve honest conversations, not ideological scripts.
       </p>
     </div>
 
     <div class="about-block">
-      <h2>What I Do</h2>
+      <h2>Where It Started</h2>
       <p>
-        I write weekly analysis, long‑form essays, and investigative commentary.  
-        I speak on issues ranging from higher education to free speech to the economics of modern Britain.  
-        My work aims to cut through noise and get to the truth — even when it’s uncomfortable.
+        I’ve been writing for as long as I can remember. My debut novel, <em>Legal Crime</em>, began when I was seven and was eventually published when I was thirteen.  
+        It grew with me — from a scribble in a notebook to a YA thriller about identity, pressure, and the contradictions of teenage life.
+      </p>
+      <p>
+        That book taught me two things early: stories matter, and age isn’t a barrier to creating something real.
       </p>
     </div>
 
     <div class="about-block">
-      <h2>My Work</h2>
+      <h2>University & Free Speech</h2>
       <p>
-        My writing has appeared across commentary platforms, podcasts, and independent media.  
-        I also run a growing Substack community where I publish exclusive deep dives, behind‑the‑scenes insights, and reader‑requested content.
+        I’m currently studying History, Politics & Economics at UCL. Between lectures on Marxism, post‑colonialism, and the usual campus orthodoxy, I’ve seen firsthand how quickly debate can shut down when people are scared to say the “wrong” thing.
+      </p>
+      <p>
+        In 2026, I revived and became President of the UCL Libertarian Society — a space built around three principles: free speech, free minds, and free markets.  
+        When I hosted a women’s‑rights and free‑speech event featuring a gender‑critical speaker, the backlash was immediate. It was rough, but it clarified something important: the cost of speaking honestly is high, but the cost of silence is worse.
       </p>
     </div>
 
     <div class="about-block">
-      <h2>Why I Write</h2>
+      <h2>What I Write About</h2>
       <p>
-        Because the world is changing fast — and too many conversations are happening in the dark.  
-        I believe in clarity, honesty, and saying the quiet part out loud.  
-        My goal is simple: to make sense of the world, and to help others do the same.
+        My work focuses on the issues shaping young people’s lives — the ones everyone feels but few articulate clearly:
+      </p>
+      <p>
+        Free speech and the culture of self‑censorship; the economics of youth opportunity; the contradictions of modern progressivism; women’s rights and biological reality; cultural cohesion and national identity; the decline of reading and Gen Z’s relationship with technology; and the gap between political rhetoric and lived reality.
+      </p>
+      <p>
+        I’m a classical liberal at my core: pro‑free markets, pro‑free speech, pro‑individual liberty, and deeply sceptical of government overreach. I care about ideas more than tribes.
       </p>
     </div>
+
+    <div class="about-block">
+      <h2>State of the Debate</h2>
+      <p>
+        In 2025, I launched <strong>Samiksha’s State of the Debate</strong> — my Substack, YouTube series, and community dedicated to honest discussion.  
+        It’s where I publish weekly articles, exclusive deep dives, behind‑the‑scenes analysis, and reader‑requested topics.
+      </p>
+      <p>
+        It’s a space for people who want clarity, not slogans — and who are tired of being told what they’re allowed to think.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h2>My Work Elsewhere</h2>
+      <p>
+        I’ve written commentary for national and international outlets and appeared on broadcast media discussing free speech, youth economics, and campus culture.  
+        I’m also a Young Voices UK contributor.
+      </p>
+      <p>
+        If you’d like to explore my articles, interviews, and media appearances, you can find them on the
+        <a href="external-commentary.html">External Commentary</a> page.
+      </p>
+    </div>
+
+    <div class="pull-quotes">
+      <div class="pull-quote">
+        “The cost of speaking honestly is high, but the cost of silence is worse.”
+      </div>
+      <div class="pull-quote">
+        “I don’t want young people to be told what to think. I want them to have the tools—and the courage—to think for themselves.”
+      </div>
+      <div class="pull-quote">
+        “If truth feels like a risk, something has gone very wrong.”
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="section-title">Press Photos</h2>
+      <p class="intro-text">
+        You’re welcome to use these photos for articles, interviews, and event materials.
+        Please credit: “Photo: Samiksha Bhattacharjee”.
+      </p>
+
+      <div class="press-photos-grid">
+        <figure class="press-photo">
+          <img src="images/samiksha-headshot-1.jpg" alt="Headshot of Samiksha Bhattacharjee">
+          <figcaption>Formal headshot – portrait</figcaption>
+        </figure>
+
+        <figure class="press-photo">
+          <img src="images/samiksha-headshot-2.jpg" alt="Samiksha Bhattacharjee speaking at an event">
+          <figcaption>Speaking / event photo</figcaption>
+        </figure>
+
+        <figure class="press-photo">
+          <img src="images/samiksha-headshot-3.jpg" alt="Samiksha Bhattacharjee in a casual setting">
+          <figcaption>Casual / editorial photo</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <div class="about-cta">
       <h3>Want to support the work?</h3>
