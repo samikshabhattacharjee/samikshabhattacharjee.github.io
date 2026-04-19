@@ -361,6 +361,95 @@
         padding:1.25rem 1.25rem 1.25rem 1rem;
       }
     }
+
+    /* Upgrade Section */
+#upgrade {
+  margin-top: 4rem;
+}
+
+.upgrade-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.upgrade-header {
+  margin-bottom: 2rem;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.upgrade-card {
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #fff;
+  position: relative;
+}
+
+.upgrade-card.highlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(198,40,40,0.15);
+}
+
+.upgrade-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.upgrade-label.free { color: #777; }
+.upgrade-label.paid { color: var(--accent); }
+.upgrade-label.founding { color: #111; }
+
+.upgrade-tier-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.upgrade-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.upgrade-list li {
+  margin-bottom: 0.4rem;
+}
+
+.upgrade-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.upgrade-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.upgrade-button:hover {
+  opacity: 0.9;
+}
+
+.upgrade-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
   </style>
 </head>
 <body>
@@ -499,138 +588,126 @@
 
       </div>
     </section>
+<section class="section" id="upgrade">
+  <div class="upgrade-wrap">
 
-    <div class="section-divider"></div>
-
-    <!-- Substack Weekly Articles (auto-pulled) -->
-    <section class="section" id="substack-weekly">
-      <div class="substack-section-header">
-        <h2 class="section-title">Weekly Articles</h2>
-        <small>
-          From <a href="https://stateofthedebate.substack.com/t/weekly-articles"
-                  target="_blank" rel="noopener">Samiksha's State of the Debate</a>
-        </small>
-      </div>
-
-      <!-- Featured Substack article (filled by JS) -->
-      <div id="substack-hero" class="substack-hero" style="display:none;">
-        <div class="substack-hero-label">Latest weekly article</div>
-        <h3 class="substack-hero-title">
-          <a href="#" target="_blank" rel="noopener" id="substack-hero-link"></a>
-        </h3>
-        <div class="substack-hero-meta" id="substack-hero-meta"></div>
-        <p class="substack-hero-excerpt" id="substack-hero-excerpt"></p>
-        <a href="#" target="_blank" rel="noopener" class="substack-hero-cta" id="substack-hero-cta">
-          Read on Substack →
-        </a>
-      </div>
-
-      <!-- List of remaining Substack posts -->
-      <div id="substack-list" class="substack-list"></div>
-
-      <p class="intro-text" style="margin-top:1.5rem;">
-        For full archives and new posts, visit
-        <a href="https://stateofthedebate.substack.com" target="_blank" rel="noopener">
-          stateofthedebate.substack.com
-        </a>.
+    <div class="upgrade-header">
+      <h2 class="section-title">Support the Work</h2>
+      <p class="intro-text">
+        Independent commentary takes time, research, and courage. If you value this work,
+        consider becoming a paid subscriber — and unlock exclusive content, behind‑the‑scenes insights,
+        and direct access to the conversation.
       </p>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Samiksha Bhattacharjee. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener">Substack</a>
-        <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener">YouTube</a>
-        <a href="mailto:stateofthedebate@gmail.com">Contact</a>
-      </div>
     </div>
-  </footer>
 
-  <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <div class="upgrade-grid">
 
-    // Fetch Substack Weekly Articles via RSS
-    (async function(){
-      const feedUrl = "https://stateofthedebate.substack.com/feed/tag/weekly-articles";
-      const proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
+      <!-- Free Tier -->
+      <div class="upgrade-card">
+        <div class="upgrade-label free">Free</div>
+        <h3 class="upgrade-tier-title">Free Subscriber</h3>
+        <ul class="upgrade-list">
+          <li>• Weekly Articles</li>
+          <li>• Public commentary</li>
+          <li>• Access to open discussions</li>
+        </ul>
+      </div>
 
-      try{
-        const res = await fetch(proxy);
-        if(!res.ok) throw new Error("Feed request failed");
-        const xmlText = await res.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(xmlText, "application/xml");
-        const items = Array.from(xml.querySelectorAll("item"));
+      <!-- Paid Tier -->
+      <div class="upgrade-card highlight">
+        <div class="upgrade-label paid">Paid</div>
+        <h3 class="upgrade-tier-title">Paid Subscriber</h3>
+        <ul class="upgrade-list">
+          <li>• EXCLUSIVE posts + deep dives</li>
+          <li>• Behind‑the‑scenes intel</li>
+          <li>• Content requests</li>
+          <li>• 10% off via website offer</li>
+        </ul>
+      </div>
 
-        if(!items.length) return;
+      <!-- Founding Member -->
+      <div class="upgrade-card">
+        <div class="upgrade-label founding">Founding Member</div>
+        <h3 class="upgrade-tier-title">Founding Member</h3>
+        <ul class="upgrade-list">
+          <li>• Priority access to Samiksha</li>
+          <li>• Direct Q&A</li>
+          <li>• Support a grassroots movement</li>
+        </ul>
+      </div>
 
-        // Helper to get text content safely
-        const getText = (el, sel) => {
-          const node = el.querySelector(sel);
-          return node ? (node.textContent || "").trim() : "";
-        };
+    </div>
 
-        // First item = hero
-        const first = items[0];
-        const heroTitle = getText(first, "title");
-        const heroLink = getText(first, "link");
-        const heroDate = getText(first, "pubDate");
-        const heroDescRaw = getText(first, "description");
-        const heroExcerpt = heroDescRaw.replace(/<[^>]+>/g,"").slice(0,220) + (heroDescRaw.length > 220 ? "…" : "");
+    <div class="upgrade-cta">
+      <a href="https://stateofthedebate.substack.com/websiteoffer"
+         target="_blank" class="upgrade-button">
+        Upgrade Your Subscription →
+      </a>
+      <p class="upgrade-note">10% off all paid plans when subscribing through this website.</p>
+    </div>
 
-        const heroEl = document.getElementById("substack-hero");
-        document.getElementById("substack-hero-link").textContent = heroTitle;
-        document.getElementById("substack-hero-link").href = heroLink;
-        document.getElementById("substack-hero-cta").href = heroLink;
-        document.getElementById("substack-hero-excerpt").textContent = heroExcerpt;
-        document.getElementById("substack-hero-meta").textContent =
-          heroDate ? new Date(heroDate).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "";
-        heroEl.style.display = "block";
+  </div>
+</section>
 
-        // Remaining items = list
-        const listEl = document.getElementById("substack-list");
-        items.slice(1).forEach(item => {
-          const title = getText(item, "title");
-          const link = getText(item, "link");
-          const date = getText(item, "pubDate");
-          const descRaw = getText(item, "description");
-          const excerpt = descRaw.replace(/<[^>]+>/g,"").slice(0,160) + (descRaw.length > 160 ? "…" : "");
+<section class="section" id="substack-weekly">
+  <div class="substack-section-header">
+    <h2 class="section-title">Weekly Articles</h2>
+    <small>
+      From <a href="https://stateofthedebate.substack.com/t/weekly-articles"
+              target="_blank" rel="noopener">Samiksha's State of the Debate</a>
+    </small>
+  </div>
 
-          const wrapper = document.createElement("article");
-          wrapper.className = "substack-item";
+  <!-- Featured Substack article -->
+  <div class="substack-hero">
+    <div class="substack-hero-label">Latest weekly article</div>
+    <h3 class="substack-hero-title">
+      <a href="YOUR_LATEST_ARTICLE_URL" target="_blank" rel="noopener">
+        Your latest Weekly Article title goes here
+      </a>
+    </h3>
+    <div class="substack-hero-meta">Jan 10, 2026</div>
+    <p class="substack-hero-excerpt">
+      One–two sentence summary of the latest Weekly Article, written in your own voice.
+    </p>
+    <a href="YOUR_LATEST_ARTICLE_URL" target="_blank" rel="noopener" class="substack-hero-cta">
+      Read on Substack →
+    </a>
+  </div>
 
-          const h = document.createElement("h3");
-          h.className = "substack-item-title";
-          const a = document.createElement("a");
-          a.href = link;
-          a.target = "_blank";
-          a.rel = "noopener";
-          a.textContent = title;
-          h.appendChild(a);
+  <!-- List of other Weekly Articles -->
+  <div class="substack-list">
+    <article class="substack-item">
+      <h3 class="substack-item-title">
+        <a href="URL_1" target="_blank" rel="noopener">Weekly Article #1 title</a>
+      </h3>
+      <div class="substack-item-meta">Dec 20, 2025</div>
+      <p class="substack-item-excerpt">
+        Short one–sentence summary of this piece.
+      </p>
+    </article>
 
-          const meta = document.createElement("div");
-          meta.className = "substack-item-meta";
-          meta.textContent = date ? new Date(date).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "";
+    <article class="substack-item">
+      <h3 class="substack-item-title">
+        <a href="URL_2" target="_blank" rel="noopener">Weekly Article #2 title</a>
+      </h3>
+      <div class="substack-item-meta">Dec 13, 2025</div>
+      <p class="substack-item-excerpt">
+        Short one–sentence summary of this piece.
+      </p>
+    </article>
 
-          const p = document.createElement("p");
-          p.className = "substack-item-excerpt";
-          p.textContent = excerpt;
+    <!-- Add more as you like -->
+  </div>
 
-          wrapper.appendChild(h);
-          wrapper.appendChild(meta);
-          wrapper.appendChild(p);
-          listEl.appendChild(wrapper);
-        });
+  <p class="intro-text" style="margin-top:1.5rem;">
+    For full archives and new posts, visit
+    <a href="https://stateofthedebate.substack.com" target="_blank" rel="noopener">
+      stateofthedebate.substack.com
+    </a>.
+  </p>
+</section>
 
-      }catch(e){
-        console.warn("Substack feed error:", e);
-      }
-    })();
   </script>
 </body>
 </html>
