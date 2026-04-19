@@ -151,6 +151,82 @@
   word-break: break-all;
   font-size: 0.95rem;
 }
+/* Navbar */
+nav.navbar{
+  background:#ffffff;
+  border-bottom:1px solid var(--border-soft);
+  box-shadow:0 2px 6px rgba(0,0,0,0.04);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+nav.navbar ul{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0.75rem 1.25rem;
+  display:flex;
+  gap:1.25rem;
+  list-style:none;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+nav.navbar a{
+  font-weight:600;
+  color:var(--text-main);
+  text-decoration:none;
+  padding:0.35rem 0.2rem;
+  border-radius:4px;
+  transition:all .15s ease;
+}
+
+nav.navbar a:hover{
+  color:var(--accent);
+  background:rgba(198,40,40,0.06);
+}
+
+/* Support button */
+.nav-support{
+  color:var(--accent) !important;
+  font-weight:700;
+  border:1px solid var(--accent);
+  padding:6px 12px;
+  border-radius:4px;
+}
+
+.nav-support:hover{
+  background:var(--accent);
+  color:#fff !important;
+}
+
+/* Mobile nav */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 0.75rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .navbar li {
+    flex: 1 1 45%;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.2rem;
+    text-align: center;
+    display: block;
+    background: #fafafa;
+    border: 1px solid var(--border-soft);
+  }
+
+  .navbar a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+}
 
 
   </style>
@@ -173,6 +249,18 @@
     </div>
   </header>
   <main>
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="external-commentary.html">External Commentary</a></li>
+    <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
+    <li><a href="author.html">Author</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://www.youtube.com/@samikshasstateofthedebate" target="_blank">YouTube</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="support.html" class="nav-support">Support</a></li>
+  </ul>
+</nav>
 
     <h1 class="section-title">Contact</h1>
     <p class="intro-text">
