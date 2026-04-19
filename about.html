@@ -127,32 +127,38 @@
       color:#fff !important;
     }
 
-    /* Mobile nav */
-    @media (max-width: 600px) {
-      .navbar ul {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 0.5rem 0.75rem;
-        padding: 0.75rem 0.5rem;
-      }
+    /* Cinematic Quote Banner */
+    .quote-banner{
+      width:100%;
+      background:#fafafa;
+      border-bottom:1px solid var(--border-soft);
+      padding:2.5rem 1.25rem;
+      text-align:center;
+      position:relative;
+    }
 
-      .navbar li {
-        flex: 1 1 45%;
-      }
+    .quote-rotator{
+      max-width:800px;
+      margin:0 auto;
+      position:relative;
+      height:2.5rem;
+    }
 
-      .navbar a {
-        font-size: 0.85rem;
-        padding: 0.35rem 0.2rem;
-        text-align: center;
-        display: block;
-        background: #fafafa;
-        border: 1px solid var(--border-soft);
-      }
+    .quote{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      opacity:0;
+      transition:opacity 1s ease;
+      font-size:1.25rem;
+      font-weight:500;
+      color:var(--text-main);
+      padding:0 1rem;
+    }
 
-      .navbar a:hover {
-        background: var(--accent);
-        color: #fff;
-      }
+    .quote.active{
+      opacity:1;
     }
 
     /* About page blocks */
@@ -169,26 +175,39 @@
       margin-bottom:1rem;
     }
 
-    .about-cta{
-      margin-top:2rem;
-      padding:1.5rem;
+    /* Focus grid */
+    .focus-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:1.5rem;
+      margin-top:1.5rem;
+    }
+    .focus-item{
+      padding:1.25rem;
       border:1px solid var(--border-soft);
-      border-radius:12px;
-      background:#fafafa;
-      text-align:center;
+      border-radius:10px;
+      background:#fff;
+      transition:0.2s ease;
     }
-    .about-cta a{
-      display:inline-block;
-      margin-top:0.5rem;
-      padding:0.75rem 1.5rem;
-      background:var(--accent);
-      color:#fff;
-      border-radius:6px;
+    .focus-item:hover{
+      border-color:var(--accent);
+      box-shadow:0 0 0 2px rgba(198,40,40,0.12);
+    }
+    .focus-item h3{
+      margin:0 0 0.5rem;
+      font-size:1.1rem;
       font-weight:700;
-      text-decoration:none;
     }
-    .about-cta a:hover{
-      opacity:0.9;
+    .focus-item p{
+      margin:0;
+      color:var(--text-muted);
+      font-size:0.95rem;
+    }
+    .focus-tagline{
+      margin-top:1.5rem;
+      font-size:0.95rem;
+      color:var(--text-muted);
+      font-style:italic;
     }
 
     /* Pull quotes */
@@ -228,10 +247,27 @@
       color:var(--text-muted);
       margin-top:0.35rem;
     }
-    @media (max-width:600px){
-      .press-photos-grid{
-        flex-direction:column;
-      }
+
+    .about-cta{
+      margin-top:2rem;
+      padding:1.5rem;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:#fafafa;
+      text-align:center;
+    }
+    .about-cta a{
+      display:inline-block;
+      margin-top:0.5rem;
+      padding:0.75rem 1.5rem;
+      background:var(--accent);
+      color:#fff;
+      border-radius:6px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .about-cta a:hover{
+      opacity:0.9;
     }
 
   </style>
@@ -265,21 +301,28 @@
     </ul>
   </nav>
 
+  <!-- CINEMATIC ROTATING QUOTE BANNER -->
+  <div class="quote-banner">
+    <div class="quote-rotator">
+      <div class="quote active">“The price of freedom is the loss of belonging and popularity.”</div>
+      <div class="quote">“I don’t want young people to be told what to think. I want them to be taught how to think.”</div>
+      <div class="quote">“If we let the government feed us, we let the government starve us.”</div>
+    </div>
+  </div>
+
   <main>
 
     <section class="section">
       <h1 class="section-title">About</h1>
       <p class="intro-text">
-        I’m a British author and commentator writing about culture, economics, politics, and the pressures shaping Gen Z.  
-    
+        I’m a British author and commentator writing about culture, economics, politics, and the pressures shaping Gen Z.
       </p>
     </section>
 
     <div class="about-block">
       <h2>About Me</h2>
       <p>
-        I’m Samiksha Bhattacharjee — a British author, commentator, and host of <strong>Samiksha’s State of the Debate</strong>.  
-        I write about culture, economics, politics, and free speech, with a focus on the realities facing young people in the modern world.
+        I’m Samiksha Bhattacharjee — a British author, commentator, and host of <strong>Samiksha’s State of the Debate</strong>. I write about culture, economics, politics, and free speech, with a focus on the realities facing young people in the modern world.
       </p>
       <p>
         My work sits somewhere between analysis and storytelling: shaped by lived experience, grounded in real-world consequences, and driven by a belief that young people deserve honest conversations, not ideological scripts.
@@ -289,12 +332,15 @@
     <div class="about-block">
       <h2>Where It Started</h2>
       <p>
-        I’ve been writing stories for as long as I can remember. My debut novel Legal Crime started when I was seven years old — literally scribbling ideas cross-legged on the bathroom floor because it was the quietest spot in the house. What began as a short tale about a runaway girl grew with me through the years. By the time I was thirteen, it had become a full YA contemporary thriller published by The Conrad Press.The book follows sixteen-year-old aspiring singer Fiona Watson, who bolts from her seemingly perfect family only to crash into the real world: peer pressure, family secrets, grief, drugs, underage drinking, and the kind of bad decisions that feel illegal even when they’re not. 
+        I’ve been writing stories for as long as I can remember. My debut novel <em>Legal Crime</em> started when I was seven years old — literally scribbling ideas cross-legged on the bathroom floor because it was the quietest spot in the house. What began as a short tale about a runaway girl grew with me through the years. By the time I was thirteen, it had become a full YA contemporary thriller published by The Conrad Press.
       </p>
-      <p></p></p>I wrote it in a raw, diary-style with flashbacks because that’s how life felt — confusing, non-linear, and full of contradictions. The title came from an English class on oxymorons. That early experience taught me something simple but important: stories matter, and age is no excuse not to create. I still hope it encourages other kids and teens to pick up a pen (or laptop) and start something real. 
       <p>
-        Age isn’t a barrier to creating something real.
+        The book follows sixteen-year-old aspiring singer Fiona Watson, who bolts from her seemingly perfect family only to crash into the real world: peer pressure, family secrets, grief, drugs, underage drinking, and the kind of bad decisions that feel illegal even when they’re not.
       </p>
+      <p>
+        I wrote it in a raw, diary-style with flashbacks because that’s how life felt — confusing, non-linear, and full of contradictions. The title came from an English class on oxymorons. That early experience taught me something simple but important: stories matter, and age is no excuse not to create. I still hope it encourages other kids and teens to pick up a pen (or laptop) and start something real.
+      </p>
+      <p><strong>Age isn’t a barrier to creating something real.</strong></p>
     </div>
 
     <div class="about-block">
@@ -303,20 +349,62 @@
         I’m currently studying History, Politics & Economics at UCL. Between lectures on Marxism, post‑colonialism, and the usual campus orthodoxy, I’ve seen firsthand how quickly debate can shut down when people are scared to say the “wrong” thing.
       </p>
       <p>
-        In 2026, I revived and became President of the UCL Libertarian Society — a space built around three principles: free speech, free minds, and free markets.  
-        When I hosted a women’s‑rights and free‑speech event featuring a gender‑critical speaker, the backlash was immediate. It was rough, but it clarified something important: the cost of speaking honestly is high, but the cost of silence is worse.
+        In 2026, I revived and became President of the UCL Libertarian Society — a space built around three principles: free speech, free minds, and free markets. When I hosted a women’s‑rights and free‑speech event featuring a gender‑critical speaker, the backlash was immediate. It was rough, but it clarified something important: <strong>the cost of speaking honestly is high, but the cost of silence is worse.</strong>
       </p>
     </div>
 
+    <!-- FLASHY AREAS OF FOCUS GRID -->
     <div class="about-block">
       <h2>What I Write About</h2>
-      <p>
-        My work focuses on the issues shaping young people’s lives — the ones everyone feels but few articulate clearly:
+      <p class="intro-text">
+        My work focuses on the issues shaping young people’s lives — the ones everyone feels but few articulate clearly.
       </p>
-      <p>
-        Free speech and the culture of self‑censorship; the economics of youth opportunity; the contradictions of modern progressivism; biological reality; fertility crisis and abortion; cultural cohesion and national identity; the decline of reading and Gen Z’s relationship with technology; and the gap between political rhetoric and lived reality.
-      </p>
-      <p>
+
+      <div class="focus-grid">
+
+        <div class="focus-item">
+          <h3>Free Speech & Open Debate</h3>
+          <p>The culture of self‑censorship, campus orthodoxy, and the future of intellectual freedom.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Youth Economics</h3>
+          <p>Work, opportunity, the graduate tax, and the policies shaping young people’s futures.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Modern Progressivism</h3>
+          <p>The contradictions, pressures, and ideological trends influencing Gen Z identity.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Biological Reality & Women’s Rights</h3>
+          <p>Sex‑based rights, single‑sex spaces, and the debates reshaping gender politics.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Fertility, Family Policy & Pro‑Life Ethics</h3>
+          <p>The fertility crisis, the value of human life, abortion debates, and the cultural and economic stakes of a society that treats life as disposable.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Culture & National Identity</h3>
+          <p>Cultural cohesion, tradition, belonging, and the narratives that bind societies.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Gen Z & Technology</h3>
+          <p>The decline of reading, AI‑driven attention collapse, and digital‑age literacy.</p>
+        </div>
+
+        <div class="focus-item">
+          <h3>Politics vs Reality</h3>
+          <p>The widening gap between political rhetoric and lived experience.</p>
+        </div>
+
+      </div>
+
+      <p class="focus-tagline">
         I’m a classical liberal at my core: pro‑free markets, pro‑free speech, pro‑individual liberty, and deeply sceptical of government overreach.
       </p>
     </div>
@@ -324,8 +412,7 @@
     <div class="about-block">
       <h2>State of the Debate</h2>
       <p>
-        In 2025, I launched <strong>Samiksha’s State of the Debate</strong> — my Substack, YouTube series, and community dedicated to honest discussion.  
-        It’s where I publish weekly articles, exclusive deep dives, behind‑the‑scenes analysis, and reader‑requested topics.
+        In 2025, I launched <strong>Samiksha’s State of the Debate</strong> — my Substack, YouTube series, and community dedicated to honest discussion. It’s where I publish weekly articles, exclusive deep dives, behind‑the‑scenes analysis, and reader‑requested topics.
       </p>
       <p>
         It’s a space for people who want clarity — and who are tired of being told what they’re allowed to think.
@@ -335,12 +422,10 @@
     <div class="about-block">
       <h2>My Work Elsewhere</h2>
       <p>
-        I’ve written commentary for national and international outlets and appeared on broadcast media discussing free speech, youth economics, and campus culture.  
-        I’m also a Young Voices UK contributor.
+        I’ve written commentary for national and international outlets and appeared on broadcast media discussing free speech, youth economics, and campus culture. I’m also a Young Voices UK contributor.
       </p>
       <p>
-        If you’d like to explore my articles, interviews, and media appearances, you can find them on the
-        <a href="external-commentary.html">External Commentary</a> page.
+        If you’d like to explore my articles, interviews, and media appearances, you can find them on the <a href="external-commentary.html">External Commentary</a> page.
       </p>
     </div>
 
@@ -359,8 +444,7 @@
     <section class="section">
       <h2 class="section-title">Press Photos</h2>
       <p class="intro-text">
-        You’re welcome to use these photos for articles, interviews, and event materials.
-        Please credit: “Photo: Samiksha Bhattacharjee”.
+        You’re welcome to use these photos for articles, interviews, and event materials. Please credit: “Photo: Samiksha Bhattacharjee”.
       </p>
 
       <div class="press-photos-grid">
@@ -388,6 +472,18 @@
     </div>
 
   </main>
+
+  <!-- ROTATING QUOTE SCRIPT -->
+  <script>
+    const quotes = document.querySelectorAll('.quote');
+    let index = 0;
+
+    setInterval(() => {
+      quotes[index].classList.remove('active');
+      index = (index + 1) % quotes.length;
+      quotes[index].classList.add('active');
+    }, 5000);
+  </script>
 
 </body>
 </html>
