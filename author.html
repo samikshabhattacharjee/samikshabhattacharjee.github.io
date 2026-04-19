@@ -139,6 +139,33 @@
   background:var(--accent);
   color:#fff !important;
 }
+/* ====== MOBILE NAV (UPGRADED) ====== */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 0.75rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .navbar li {
+    flex: 1 1 45%;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.2rem;
+    text-align: center;
+    display: block;
+    background: #fafafa;
+    border: 1px solid var(--border-soft);
+  }
+
+  .navbar a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+}
 
   </style>
 </head>
