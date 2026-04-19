@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Support – Samiksha Bhattacharjee</title>
+
+  <style>
+    :root{
+      --bg-main:#ffffff;
+      --bg-soft:#fafafa;
+      --text-main:#111111;
+      --text-muted:#555555;
+      --accent:#c62828;
+      --border-soft:#e5e5e5;
+      --max-width:960px;
+      --font-main:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:var(--font-main);
+      background:var(--bg-main);
+      color:var(--text-main);
+      line-height:1.6;
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2rem 1.25rem 3rem;
+    }
+
+    .section{margin-bottom:3rem;}
+    .section-title{
+      font-size:2rem;
+      margin-bottom:0.75rem;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+    }
+    .intro-text{
+      font-size:1rem;
+      color:var(--text-muted);
+      max-width:720px;
+    }
+
+    /* Navbar */
+    nav.navbar{
+      background:#ffffff;
+      border-bottom:1px solid var(--border-soft);
+      box-shadow:0 2px 6px rgba(0,0,0,0.04);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+    nav.navbar ul{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0.75rem 1.25rem;
+      display:flex;
+      gap:1.25rem;
+      list-style:none;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    nav.navbar a{
+      font-weight:600;
+      color:var(--text-main);
+      text-decoration:none;
+      padding:0.35rem 0.2rem;
+      border-radius:4px;
+      transition:all .15s ease;
+    }
+    nav.navbar a:hover{
+      color:var(--accent);
+      background:rgba(198,40,40,0.06);
+    }
+
+    /* Support button */
+    .nav-support{
+      color:var(--accent) !important;
+      font-weight:700;
+      border:1px solid var(--accent);
+      padding:6px 12px;
+      border-radius:4px;
+    }
+    .nav-support:hover{
+      background:var(--accent);
+      color:#fff !important;
+    }
+
+    /* Upgrade section */
+    #upgrade { margin-top: 2rem; }
+
+    .upgrade-wrap { max-width: 900px; margin: 0 auto; }
+
+    .upgrade-header { margin-bottom: 2rem; }
+
+    .upgrade-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .upgrade-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: #fff;
+    }
+
+    .upgrade-card.highlight {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(198,40,40,0.15);
+    }
+
+    .upgrade-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .upgrade-label.free { color: #777; }
+    .upgrade-label.paid { color: var(--accent); }
+    .upgrade-label.founding { color: #111; }
+
+    .upgrade-tier-title {
+      margin: 0 0 0.75rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .upgrade-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .upgrade-list li { margin-bottom: 0.4rem; }
+
+    .upgrade-cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .upgrade-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .upgrade-button:hover { opacity: 0.9; }
+
+    .upgrade-note {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Book section */
+    .book-card{
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      padding:1.5rem;
+      background:#fff;
+      display:flex;
+      gap:1.5rem;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .book-cover{
+      width:160px;
+      border-radius:8px;
+    }
+    .book-info{
+      flex:1;
+      min-width:220px;
+    }
+    .book-title{
+      font-size:1.4rem;
+      margin:0 0 0.5rem;
+    }
+    .book-cta{
+      display:inline-block;
+      margin-top:0.75rem;
+      padding:0.6rem 1.2rem;
+      background:var(--accent);
+      color:#fff;
+      border-radius:6px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .book-cta:hover{opacity:0.9;}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="external-commentary.html">External Commentary</a></li>
+      <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
+      <li><a href="author.html">Author</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://www.youtube.com/channel/UCka378q9pGei337HfwEwinA?sub_confirmation=1">YouTube</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="support.html" class="nav-support">Support</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="section">
+      <h1 class="section-title">Support the Work</h1>
+      <p class="intro-text">
+        Independent commentary takes time, research, and courage.  
+        If you value this work, here are the best ways to support it — from buying the book to joining the community on Substack.
+      </p>
+    </section>
+
+    <!-- BOOK SUPPORT -->
+    <section class="section">
+      <h2 class="section-title">Buy the Book</h2>
+
+      <div class="book-card">
+        <img src="images/legal-crime-cover.webp" alt="Legal Crime book cover" class="book-cover">
+
+          <div class="buy-box">
+            <h3 style="margin-top:0; font-weight:700;">Buy a Signed & Personalised Copy of Legal Crime</h3>
+            <p class="intro-text" style="margin-bottom:1rem;">
+              Directly supports the author. Use code <strong>samiksha25</strong> for <strong>25% off</strong>.
+            </p>
+            <a href="https://buy.stripe.com/cNicN5d5J4pfbgD6KQ8so00" target="_blank" rel="noopener" class="buy-button">Buy Now →</a>
+          </div>
+        </div>
+      </div>
+
+    <!-- SUBSTACK SUPPORT -->
+    <section class="section" id="upgrade">
+      <div class="upgrade-wrap">
+
+        <div class="upgrade-header">
+          <h2 class="section-title">Become a Subscriber</h2>
+          <p class="intro-text">
+            Join the community on <strong>Samiksha’s State of the Debate</strong> — and unlock exclusive posts, deep dives, behind‑the‑scenes intel, and direct access.
+          </p>
+        </div>
+
+        <div class="upgrade-grid">
+
+          <!-- Free Tier -->
+          <div class="upgrade-card">
+            <div class="upgrade-label free">Free</div>
+            <h3 class="upgrade-tier-title">Free Subscriber</h3>
+            <ul class="upgrade-list">
+              <li>• Weekly Articles</li>
+              <li>• Public commentary</li>
+              <li>• Access to open discussions</li>
+            </ul>
+          </div>
+
+          <!-- Paid Tier -->
+          <div class="upgrade-card highlight">
+            <div class="upgrade-label paid">Paid</div>
+            <h3 class="upgrade-tier-title">Paid Subscriber</h3>
+            <ul class="upgrade-list">
+              <li>• EXCLUSIVE posts + deep dives</li>
+              <li>• Behind‑the‑scenes intel</li>
+              <li>• Content requests</li>
+              <li>• 10% off via website offer</li>
+            </ul>
+          </div>
+
+          <!-- Founding Member -->
+          <div class="upgrade-card">
+            <div class="upgrade-label founding">Founding Member</div>
+            <h3 class="upgrade-tier-title">Founding Member</h3>
+            <ul class="upgrade-list">
+              <li>• Priority access to Samiksha</li>
+              <li>• Direct Q&A</li>
+              <li>• Support a grassroots movement</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="upgrade-cta">
+          <a href="https://stateofthedebate.substack.com/websiteoffer"
+             target="_blank" class="upgrade-button">
+            Upgrade Your Subscription →
+          </a>
+          <p class="upgrade-note">10% off all paid plans when subscribing through this website.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
