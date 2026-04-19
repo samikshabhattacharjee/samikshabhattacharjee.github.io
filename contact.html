@@ -1,31 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact — Samiksha Bhattacharjee</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact – Samiksha Bhattacharjee</title>
+
+  <style>
+    :root{
+      --bg-main:#ffffff;
+      --bg-soft:#fafafa;
+      --text-main:#111111;
+      --text-muted:#555555;
+      --accent:#c62828;
+      --border-soft:#e5e5e5;
+      --max-width:960px;
+      --font-main:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    body{
+      margin:0;
+      font-family:var(--font-main);
+      background:var(--bg-main);
+      color:var(--text-main);
+      line-height:1.6;
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2rem 1.25rem 3rem;
+    }
+
+    h1.section-title{
+      font-size:2.2rem;
+      margin-bottom:1rem;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+    }
+
+    .intro-text{
+      max-width:700px;
+      color:var(--text-muted);
+      margin-bottom:2rem;
+    }
+
+    /* WhatsApp Highlight */
+    .whatsapp-feature{
+      padding:2rem;
+      border:2px solid var(--accent);
+      border-radius:12px;
+      background:#fff5f5;
+      margin-bottom:3rem;
+    }
+
+    .whatsapp-feature h2{
+      margin-top:0;
+      font-size:1.6rem;
+    }
+
+    .whatsapp-feature p{
+      color:var(--text-main);
+      margin-bottom:1rem;
+    }
+
+    .whatsapp-feature a{
+      display:inline-block;
+      padding:0.75rem 1.5rem;
+      background:var(--accent);
+      color:#fff;
+      border-radius:6px;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .whatsapp-feature a:hover{
+      opacity:0.9;
+    }
+
+    /* Contact Cards */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:1.5rem;
+      margin-bottom:3rem;
+    }
+
+    .contact-card{
+      padding:1.5rem;
+      border:1px solid var(--border-soft);
+      border-radius:10px;
+      background:#fafafa;
+      transition:0.2s ease;
+    }
+
+    .contact-card:hover{
+      border-color:var(--accent);
+      background:#fff;
+    }
+
+    .contact-card h3{
+      margin-top:0;
+      font-size:1.2rem;
+      margin-bottom:0.5rem;
+    }
+
+    .contact-card p{
+      margin:0 0 0.75rem;
+      color:var(--text-muted);
+    }
+
+    .contact-card a{
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    .contact-card a:hover{
+      text-decoration:underline;
+    }
+
+    /* Social Grid */
+    .social-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:1rem;
+      margin-top:1rem;
+      max-width:760px;
+    }
+
+    .social-item{
+      padding:1rem;
+      border:1px solid var(--border-soft);
+      border-radius:8px;
+      background:#fafafa;
+      text-align:center;
+      transition:0.2s ease;
+    }
+
+    .social-item:hover{
+      border-color:var(--accent);
+      background:#fff;
+    }
+
+    .social-item a{
+      color:var(--text-main);
+      font-weight:600;
+      text-decoration:none;
+    }
+
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="external-commentary.html">External Commentary</a></li>
-      <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
-      <li><a href="author.html">Author</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="https://www.youtube.com/channel/UCka378q9pGei337HfwEwinA?sub_confirmation=1">YouTube</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
   <main>
-    <section class="section">
-      <h1 class="section-title">About</h1>
-      <p>To be added.</p>
-    </section>
+
+    <h1 class="section-title">Contact</h1>
+    <p class="intro-text">
+      For media, organisational enquiries, collaborations, or to connect with the community, you can reach me through the channels below.
+    </p>
+
+    <!-- WHATSAPP COMMUNITY FEATURE -->
+    <div class="whatsapp-feature">
+      <h2>Join the WhatsApp Community</h2>
+      <p>
+        This is the main place to meet the community, debate ideas, ask questions, and make friends.  
+        All viewpoints are welcome, and I’m active in the chat as well.
+      </p>
+      <a href="https://chat.whatsapp.com/FgUr4ZMhYAgEyIte4b8Y43" target="_blank">Join the Community →</a>
+    </div>
+
+    <!-- CONTACT GRID -->
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h3>General & Media Enquiries</h3>
+        <p>Interviews, media requests, collaborations, or general questions.</p>
+        <a href="mailto:stateofthedebate@gmail.com">stateofthedebate@gmail.com</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Ladies of Liberty Alliance (LOLA UK)</h3>
+        <p>For enquiries related to LOLA UK.</p>
+        <a href="mailto:samiksha.bhattacharjee@ladiesofliberty.org">samiksha.bhattacharjee@ladiesofliberty.org</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Students For Liberty</h3>
+        <p>For SFL-related enquiries.</p>
+        <a href="mailto:sbhattacharjee@studentsforliberty.org">sbhattacharjee@studentsforliberty.org</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>UCL Libertarian Society</h3>
+        <p>For society events, collaborations, or student enquiries.</p>
+        <a href="mailto:su.libertarian-society@ucl.ac.uk">su.libertarian-society@ucl.ac.uk</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Young Voices UK</h3>
+        <p>For enquiries through Young Voices.</p>
+        <a href="mailto:info@joinyv.org">info@joinyv.org</a>
+      </div>
+
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <h2>Social Media</h2>
+    <p class="intro-text">Connect with me across platforms:</p>
+
+    <div class="social-grid">
+
+      <div class="social-item">
+        <a href="https://x.com/samikshassotd" target="_blank">Twitter / X</a>
+      </div>
+
+      <div class="social-item">
+        <a href="https://www.instagram.com/samikshasstateofthedebate/" target="_blank">Instagram</a>
+      </div>
+
+      <div class="social-item">
+        <a href="https://www.youtube.com/@samikshasstateofthedebate" target="_blank">YouTube</a>
+      </div>
+
+      <div class="social-item">
+        <a href="https://stateofthedebate.substack.com/" target="_blank">Substack</a>
+      </div>
+
+      <div class="social-item">
+        <a href="https://www.goodreads.com/author/show/21266746.Samiksha_Bhattacharjee" target="_blank">Goodreads</a>
+      </div>
+
+      <div class="social-item">
+        <a href="https://www.joinyv.org/talent/samiksha-bhattacharjee" target="_blank">Young Voices Profile</a>
+      </div>
+
+    </div>
+
   </main>
 
 </body>
