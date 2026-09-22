@@ -10,487 +10,582 @@
      crossorigin="anonymous"></script>
 
   <!-- ====== JSON-LD SCHEMA ====== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://samikshabhattacharjee.github.io",
-      "name": "Samiksha Bhattacharjee",
-      "url": "https://samikshabhattacharjee.github.io",
-      "image": "https://samikshabhattacharjee.github.io/images/profile.jpg",
-      "description": "Samiksha Bhattacharjee is a published author, commentator, and student at University College London.",
-      "jobTitle": "Author, Commentator, Student",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "University College London"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://samikshab.com",
+        "name": "Samiksha Bhattacharjee",
+        "url": "https://samikshab.com",
+        "image": "https://samikshab.com/images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp",
+        "description": "Samiksha Bhattacharjee is a published author, commentator, and student at University College London.",
+        "jobTitle": "Author, Commentator, Student",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University College London"
+        },
+        "knowsAbout": [
+          "Politics",
+          "Economics",
+          "History",
+          "Free Speech",
+          "Culture"
+        ],
+        "sameAs": [
+          "https://www.goodreads.com/author/show/21250460.Samiksha_Bhattacharjee",
+          "https://www.amazon.co.uk/stores/author/Samiksha-Bhattacharjee",
+          "https://www.joinvy.org/talent/samiksha-bhattacharjee",
+          "https://www.instagram.com/samikshasstateofthedebate/",
+          "https://www.youtube.com/@SamikshasStateoftheDebate",
+          "https://stateofthedebate.substack.com"
+        ]
       },
-      "knowsAbout": [
-        "Politics",
-        "Economics",
-        "History",
-        "Free Speech",
-        "Feminism"
-      ],
-      "sameAs": [
-        "https://www.goodreads.com/author/show/21250460.Samiksha_Bhattacharjee",
-        "https://www.amazon.co.uk/stores/author/Samiksha-Bhattacharjee",
-        "https://www.joinvy.org/talent/samiksha-bhattacharjee",
-        "https://www.instagram.com/samikshasstateofthedebate/",
-        "https://www.youtube.com/@SamikshasStateoftheDebate",
-        "https://substack.com/@samikshasstateofthedebate"
-      ]
-    },
-    {
-      "@type": "Book",
-      "@id": "https://samikshabhattacharjee.github.io/#legalcrime",
-      "name": "Legal Crime",
-      "author": {
-        "@id": "https://samikshabhattacharjee.github.io"
-      },
-      "image": "https://samikshabhattacharjee.github.io/images/legal-crime.jpg",
-      "url": "https://www.amazon.co.uk/Legal-Crime-Samiksha-Bhattacharjee-ebook/dp/B08WPNS119",
-      "bookFormat": "https://schema.org/EBook",
-      "inLanguage": "en",
-      "description": "A YA thriller exploring peer pressure, family, friendship, and identity.",
-      "publisher": "The Conrad Press",
-      "genre": [
-        "Young Adult",
-        "Thriller"
-      ]
-    }
-  ]
-}
-</script>
+      {
+        "@type": "Book",
+        "@id": "https://samikshab.com/#legalcrime",
+        "name": "Legal Crime",
+        "author": {
+          "@id": "https://samikshab.com"
+        },
+        "image": "https://samikshab.com/images/legal-crime.jpg",
+        "url": "https://www.amazon.co.uk/Legal-Crime-Samiksha-Bhattacharjee-ebook/dp/B08WPNS119",
+        "bookFormat": "https://schema.org/EBook",
+        "inLanguage": "en",
+        "description": "A YA thriller exploring peer pressure, family, friendship, and identity.",
+        "publisher": "The Conrad Press",
+        "genre": [
+          "Young Adult",
+          "Thriller"
+        ]
+      }
+    ]
+  }
+  </script>
 
-
-
-  <!-- ====== BASIC MAGAZINE-STYLE CSS ====== -->
+  <!-- ====== MAGAZINE-STYLE & FLIP-CARD CSS ====== -->
   <style>
-/* ====== ROOT ====== */
-:root {
-  --bg: #ffffff;
-  --text-main: #111;
-  --text-muted: #555;
-  --accent: #c62828;
-  --accent-dark: #a31f1f;
-  --accent-soft: rgba(198, 40, 40, 0.12);
-  --border-soft: #e5e5e5;
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --max-width: 860px;
-}
+    /* ====== ROOT ====== */
+    :root {
+      --bg: #ffffff;
+      --text-main: #111;
+      --text-muted: #555;
+      --accent: #c62828;
+      --accent-dark: #a31f1f;
+      --accent-soft: rgba(198, 40, 40, 0.12);
+      --border-soft: #e5e5e5;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max-width: 960px;
+    }
 
-/* ====== GLOBAL ====== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-main);
-  background: #ffffff;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(0,0,0,0.02), transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02), transparent 60%);
-  color: var(--text-main);
-  line-height: 1.65;
-}
+    /* ====== GLOBAL ====== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      background: #ffffff;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(0,0,0,0.02), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02), transparent 60%);
+      color: var(--text-main);
+      line-height: 1.65;
+    }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: 0.2s ease;
-}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
 
-a:hover {
-  text-decoration: underline;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-/* ====== HEADER ====== */
-header {
-  background: #fff;
-  border-bottom: 1px solid var(--border-soft);
-}
+    /* ====== HEADER ====== */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border-soft);
+    }
 
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
 
-.logo img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+    .logo img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-.header-text .tagline {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-  font-weight: 700;
-}
+    .header-text .tagline {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      font-weight: 700;
+    }
 
-.header-text h1 {
-  margin: 0.2rem 0 0.3rem;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
+    .header-text h1 {
+      margin: 0.2rem 0 0.3rem;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
 
-.header-text p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
+    .header-text p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
     /* ====== NAVBAR ====== */
-.navbar {
-  background: #fff;
-  border-bottom: 1px solid var(--border-soft);
-}
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-.navbar ul {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0.75rem 1rem;
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
+    .navbar ul {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
 
-.navbar a {
-  font-weight: 600;
-  color: var(--text-main);
-  text-decoration: none;
-  padding: 0.25rem 0;
-  transition: 0.2s ease;
-}
+    .navbar a {
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 0.4rem 0.2rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
 
-.navbar a:hover {
-  color: var(--accent);
-}
+    .navbar a:hover {
+      color: var(--accent);
+      background: rgba(198,40,40,0.08);
+    }
 
+    .nav-support {
+      color: var(--accent) !important;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
 
-/* ====== VIDEO HERO ====== */
-.video-hero {
-  position: relative;
-  width: 100%;
-  height: 85vh;
-  overflow: hidden;
-}
+    .nav-support:hover {
+      background: var(--accent);
+      color: #fff !important;
+    }
 
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  filter: brightness(65%);
-}
+    @media (max-width: 680px) {
+      .navbar ul {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem 0.75rem;
+        padding: 0.75rem 0.5rem;
+      }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.1),
-    rgba(0,0,0,0.85)
-  );
-}
+      .navbar li {
+        flex: 1 1 45%;
+      }
 
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  padding: 0 1rem;
-}
+      .navbar a {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.2rem;
+        text-align: center;
+        display: block;
+        background: #fafafa;
+        border: 1px solid var(--border-soft);
+      }
 
-.hero-name {
-  font-size: 3.2rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
-  font-weight: 800;
-  position: relative;
-}
+      .navbar a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+    }
 
-.hero-name::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px;
-}
+    /* ====== VIDEO HERO ====== */
+    .video-hero {
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      overflow: hidden;
+      background: #000;
+    }
 
-.hero-tagline {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.95;
-}
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: brightness(65%);
+    }
 
-.hero-button {
-  padding: 12px 28px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 6px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-}
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.85)
+      );
+    }
 
-.hero-button:hover {
-  background: var(--accent-dark);
-}
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+      width: 90%;
+      max-width: 800px;
+    }
 
-/* ====== MAIN (HYBRID LAYOUT) ====== */
-main {
-  max-width: var(--max-width);
-  margin: 3.5rem auto;
-  padding: 0 1rem;
-}
+    .hero-name {
+      font-size: 3.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      font-weight: 800;
+      position: relative;
+    }
 
-/* ====== SECTIONS ====== */
-.section {
-  margin-bottom: 3.5rem;
-}
+    .hero-name::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
 
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  position: relative;
-}
+    .hero-tagline {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+    }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  border-radius: 2px;
-}
+    .hero-button {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
 
-/* ====== INTRO ====== */
-.intro-text {
-  font-size: 1.1rem;
-  opacity: 0.95;
-  font-weight: 500;
-}
+    .hero-button:hover {
+      background: var(--accent-dark);
+      text-decoration: none;
+    }
 
-.identity-tags {
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
+    /* ====== MAIN (HYBRID LAYOUT) ====== */
+    main {
+      max-width: var(--max-width);
+      margin: 3.5rem auto;
+      padding: 0 1.25rem;
+    }
 
-.identity-tags span {
-  background: var(--accent-soft);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  color: var(--accent-dark);
-  font-weight: 600;
-}
+    /* ====== SECTIONS ====== */
+    .section {
+      margin-bottom: 4rem;
+    }
 
-/* ====== AS SEEN IN ====== */
-.logos-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-  font-weight: 600;
-}
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      position: relative;
+    }
 
-/* ====== FEATURED ARTICLES ====== */
-.articles-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px;
+    }
 
-.article-card {
-  background: #fff;
-  padding: 1.75rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-  transition: 0.2s ease;
-}
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: -0.5rem;
+      margin-bottom: 1.75rem;
+    }
 
-.article-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
+    /* ====== INTRO ====== */
+    .intro-text {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      font-weight: 500;
+    }
 
-.article-outlet {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--accent-dark);
-  margin-bottom: 0.4rem;
-  font-weight: 700;
-}
+    .identity-tags {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
 
-.article-card h3 {
-  margin: 0.2rem 0 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
+    .identity-tags span {
+      background: var(--accent-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--accent-dark);
+      font-weight: 600;
+    }
 
-.article-excerpt {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  font-weight: 500;
-}
+    /* ====== AS SEEN IN ====== */
+    .logos-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
 
-.section-cta {
-  margin-top: 1.5rem;
-  font-weight: 700;
-  font-size: 1rem;
-}
+    /* ====== INTERACTIVE 3D FLIP CARDS ====== */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
 
-/* ====== FOOTER ====== */
-.footer {
-  max-width: var(--max-width);
-  margin: 4rem auto 2rem;
-  padding: 0 1rem;
-  border-top: 1px solid var(--border-soft);
-  padding-top: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
+    .flip-card {
+      perspective: 1000px;
+      height: 380px;
+      cursor: pointer;
+    }
 
-.footer-links a {
-  margin-left: 1rem;
-  font-weight: 600;
-}
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
 
-/* ====== DISABLE BROKEN ANIMATIONS (IMPORTANT) ====== */
-.section, .article-card, .intro-text, .identity-tags {
-  opacity: 1 !important;
-  transform: none !important;
-}
-    /* ====== MOBILE NAV FIX ====== */
-@media (max-width: 600px) {
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
-  .navbar ul {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.75rem 1rem; /* smaller gaps */
-    padding: 0.75rem 1rem;
-  }
+    .card-front, .card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
 
-  .navbar a {
-    font-size: 0.9rem; /* slightly smaller text */
-    padding: 0.2rem 0;
-  }
+    /* Front side (Photoshoot image with dark text gradient) */
+    .card-front {
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      background-color: #222;
+    }
 
-  .navbar li {
-    flex: 1 1 calc(50% - 1rem); 
-    /* each item takes half the row on mobile */
-    text-align: left;
-  }
-}
-/* ====== NAVBAR (UPGRADED) ====== */
-.navbar {
-  background: #ffffff;
-  border-bottom: 1px solid var(--border-soft);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
+    .card-front::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.85) 100%);
+    }
 
-.navbar ul {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0.75rem 1.25rem;
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
+    .card-front-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
 
-.navbar a {
-  font-weight: 600;
-  color: var(--text-main);
-  text-decoration: none;
-  padding: 0.4rem 0.2rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
+    .card-front-content h3 {
+      font-size: 1.3rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
 
-.navbar a:hover {
-  color: var(--accent);
-  background: rgba(198,40,40,0.08);
-}
+    .card-hint {
+      display: inline-block;
+      margin-top: 0.35rem;
+      color: #ffcdd2;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-/* ====== MOBILE NAV (UPGRADED) ====== */
-@media (max-width: 600px) {
-  .navbar ul {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.5rem 0.75rem;
-    padding: 0.75rem 0.5rem;
-  }
+    /* Back side */
+    .card-back {
+      background: #ffffff;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
 
-  .navbar li {
-    flex: 1 1 45%;
-  }
+    .card-back h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
 
-  .navbar a {
-    font-size: 0.85rem;
-    padding: 0.35rem 0.2rem;
-    text-align: center;
-    display: block;
-    background: #fafafa;
-    border: 1px solid var(--border-soft);
-  }
+    .card-back p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
 
-  .navbar a:hover {
-    background: var(--accent);
-    color: #fff;
-  }
-}
-.nav-support{
-  color:var(--accent) !important;
-  font-weight:700;
-  border:1px solid var(--accent);
-  padding:6px 12px;
-  border-radius:4px;
-}
-.nav-support:hover{
-  background:var(--accent);
-  color:#fff !important;
-}
+    .card-action-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
 
+    .card-action-btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
 
-</style>
+    /* ====== FEATURED ARTICLES ====== */
+    .articles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .article-card {
+      background: #fff;
+      padding: 1.75rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-soft);
+      transition: 0.2s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .article-outlet {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .article-card h3 {
+      margin: 0.2rem 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .article-excerpt {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .section-cta {
+      margin-top: 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ====== FOOTER ====== */
+    .footer {
+      max-width: var(--max-width);
+      margin: 4rem auto 2rem;
+      padding: 1.25rem 1.25rem 0;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links a {
+      margin-left: 1rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+      .footer-links a {
+        margin: 0 0.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
   <!-- ====== HEADER ====== -->
   <header>
     <div class="header-inner">
       <div class="logo">
-        <!-- Replace images/logo.png with your actual logo path -->
         <img src="images/1cc23b9b-7859-410a-ba13-cde86f790386_1400x1400.webp" alt="Samiksha's State of the Debate logo">
       </div>
       <div class="header-text">
@@ -501,140 +596,234 @@ main {
     </div>
   </header>
   
-<!-- NAVBAR -->
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="external-commentary.html">External Commentary</a></li>
-    <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
-    <li><a href="author.html">Author</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="https://www.youtube.com/channel/UCka378q9pGei337HfwEwinA?sub_confirmation=1">YouTube</a></li>
-    <li><a href="contact.html">Contact</a></li>
-
-    <!-- SUPPORT BUTTON -->
-    <li><a href="support.html" class="nav-support">Support</a></li>
-  </ul>
-</nav>
-
-
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="external-commentary.html">External Commentary</a></li>
+      <li><a href="https://stateofthedebate.substack.com" target="_blank">Substack</a></li>
+      <li><a href="author.html">Author</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://www.youtube.com/@SamikshasStateoftheDebate?sub_confirmation=1" target="_blank">YouTube</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- SUPPORT BUTTON -->
+      <li><a href="support.html" class="nav-support">Support</a></li>
+    </ul>
+  </nav>
 
   <!-- ====== VIDEO HERO HEADER ====== -->
-<section class="video-hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="videos/headervideo.mp4" type="video/mp4">
-  </video>
+  <section class="video-hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="videos/headervideo.mp4" type="video/mp4">
+    </video>
 
-  <div class="hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
-  <div class="hero-content">
-    <h1 class="hero-name">Samiksha Bhattacharjee</h1>
-    <p class="hero-tagline">Writer · Commentator · Host of Samiksha's State of the Debate</p>
-    <a href="#featured" class="hero-button">View Latest Work</a>
-
-  </div>
-</section>
-
+    <div class="hero-content">
+      <h1 class="hero-name">Samiksha Bhattacharjee</h1>
+      <p class="hero-tagline">Writer · Commentator · Host of Samiksha's State of the Debate</p>
+      <a href="#explore" class="hero-button">Explore Channels & Work</a>
+    </div>
+  </section>
 
   <!-- ====== MAIN LAYOUT ====== -->
-<main>
+  <main>
 
-  <!-- SHORT BIO -->
-  <section class="section intro-section">
-    <p class="intro-text">
-      British author & social commentator.
-      I’m the author of <strong>Legal Crime</strong> and host of <strong>Samiksha’s State of the Debate</strong>, a series exploring
-      free speech, campus culture, and the ideas shaping Gen Z.  My work advocates for classical liberal economics and open debate, with a focus on culture, politics, and economics.
-    </p>
+    <!-- SHORT BIO -->
+    <section class="section intro-section">
+      <p class="intro-text">
+        British author & social commentator.
+        I’m the author of <strong>Legal Crime</strong> and host of <strong>Samiksha’s State of the Debate</strong>, a series exploring
+        free speech, campus culture, and the ideas shaping Gen Z. My work advocates for classical liberal economics and open debate, with a focus on culture, politics, and economics.
+      </p>
 
-    <div class="identity-tags">
-      <span>Author</span>
-      <span>Commentator</span>
-      <span>Podcast Host</span>
-    </div>
-  </section>
+      <div class="identity-tags">
+        <span>Author</span>
+        <span>Commentator</span>
+        <span>Podcast Host</span>
+      </div>
+    </section>
 
-  <!-- AS SEEN IN -->
-  <section class="section">
-    <h2 class="section-title">As Seen In</h2>
-    <div class="logos-row">
-      <span>The Telegraph</span>
-      <span>The Independent</span>
-      <span>City A.M.</span>
-      <span>GB News</span>
-      <span>TalkTV</span>
-    </div>
-  </section>
+    <!-- AS SEEN IN -->
+    <section class="section">
+      <h2 class="section-title">As Seen In</h2>
+      <div class="logos-row">
+        <span>The Telegraph</span>
+        <span>The Independent</span>
+        <span>City A.M.</span>
+        <span>GB News</span>
+        <span>TalkTV</span>
+      </div>
+    </section>
 
-  <!-- FEATURED ARTICLES -->
-  <section class="section" id="featured">
-    <h2 class="section-title">Featured Commentary</h2>
+    <!-- ====== INTERACTIVE FLIP CARDS SECTION ====== -->
+    <section class="section" id="explore">
+      <h2 class="section-title">Explore My Work</h2>
+      <p class="section-subtitle">Click or tap any card to view channels, columns, and projects.</p>
 
-    <div class="articles-list">
+      <div class="flip-grid">
 
-      <article class="article-card">
-        <div class="article-outlet">The Telegraph</div>
-        <h3><a href="https://www.telegraph.co.uk/news/2026/03/17/ucl-student-protests-women-rights-event/" target="_blank">Pro‑trans mob made me the most hated student at my university</a></h3>
-        <p class="article-excerpt">
-          The ordeal I suffered at UCL taught me a painful lesson: the price of freedom can be loss of popularity.
-        </p>
-      </article>
+        <!-- Card 1: Commentary -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="card-front" style="background-image: url('images/photo1.jpg');">
+              <div class="card-front-content">
+                <h3>External Commentary</h3>
+                <span class="card-hint">Tap to flip ⟳</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Press & Commentary</h3>
+              <p>National opinion columns, broadcast interviews, and commentary across UK press.</p>
+              <a href="external-commentary.html" class="card-action-btn" onclick="event.stopPropagation();">Read Articles →</a>
+            </div>
+          </div>
+        </div>
 
-      <article class="article-card">
-        <div class="article-outlet">The Independent</div>
-        <h3><a href="https://www.independent.co.uk/voices/uk-economy-youth-unemployment-lazy-students-b2940210.html" target="_blank">The economy is rigged against students like me</a></h3>
-        <p class="article-excerpt">
-          Youth unemployment is climbing and entry‑level jobs are disappearing. So why is policy making it harder?
-        </p>
-      </article>
+        <!-- Card 2: Substack -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="card-front" style="background-image: url('images/photo2.jpg');">
+              <div class="card-front-content">
+                <h3>Substack</h3>
+                <span class="card-hint">Tap to flip ⟳</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>State of the Debate</h3>
+              <p>Long-form essays, weekly cultural analysis, and candid policy observations.</p>
+              <a href="https://stateofthedebate.substack.com" target="_blank" class="card-action-btn" onclick="event.stopPropagation();">Visit Publication →</a>
+            </div>
+          </div>
+        </div>
 
-      <article class="article-card">
-        <div class="article-outlet">City A.M.</div>
-        <h3><a href="https://www.cityam.com/im-a-teetotaller-banning-alcohol-free-beer-shows-labours-contempt-for-young-people-like-me/" target="_blank">I'm a teetotaller — banning alcohol‑free beer shows Labour's contempt for young people like me</a></h3>
-        <p class="article-excerpt">
-          Why proposed restrictions on alcohol‑free beer reveal deeper issues about youth autonomy.
-        </p>
-      </article>
+        <!-- Card 3: YouTube & Broadcast -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="card-front" style="background-image: url('images/photo3.jpg');">
+              <div class="card-front-content">
+                <h3>YouTube Channel</h3>
+                <span class="card-hint">Tap to flip ⟳</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Watch & Listen</h3>
+              <p>Interviews, quick commentaries, podcast episodes, and campus debates.</p>
+              <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" class="card-action-btn" onclick="event.stopPropagation();">Watch on YouTube →</a>
+            </div>
+          </div>
+        </div>
 
-    </div>
+        <!-- Card 4: Books & Fiction -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="card-front" style="background-image: url('images/photo4.jpg');">
+              <div class="card-front-content">
+                <h3>Author & Fiction</h3>
+                <span class="card-hint">Tap to flip ⟳</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Published Works</h3>
+              <p>Debut novel <em>Legal Crime</em> and upcoming fiction projects exploring peer pressure and autonomy.</p>
+              <a href="author.html" class="card-action-btn" onclick="event.stopPropagation();">Explore Books →</a>
+            </div>
+          </div>
+        </div>
 
-    <p class="section-cta">
-      <a href="external-commentary.html">See all commentary →</a>
-    </p>
-  </section>
+        <!-- Card 5: About & Background -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="card-front" style="background-image: url('images/photo5.jpg');">
+              <div class="card-front-content">
+                <h3>Biography</h3>
+                <span class="card-hint">Tap to flip ⟳</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>About Me</h3>
+              <p>Academic background at UCL, speaking history, bio, and organizational work.</p>
+              <a href="about.html" class="card-action-btn" onclick="event.stopPropagation();">Read Full Bio →</a>
+            </div>
+          </div>
+        </div>
 
-</main>
+        <!-- Card 6: Contact & Support -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="card-front" style="background-image: url('images/photo6.jpg');">
+              <div class="card-front-content">
+                <h3>Connect & Support</h3>
+                <span class="card-hint">Tap to flip ⟳</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Get In Touch</h3>
+              <p>Media bookings, commercial inquiries, or supporting independent media production.</p>
+              <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="card-action-btn" onclick="event.stopPropagation();">Contact</a>
+                <a href="support.html" class="card-action-btn" style="background: transparent; color: var(--accent) !important; border: 1px solid var(--accent);" onclick="event.stopPropagation();">Support</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </section>
+
+    <!-- FEATURED ARTICLES -->
+    <section class="section" id="featured">
+      <h2 class="section-title">Featured Commentary</h2>
+
+      <div class="articles-list">
+
+        <article class="article-card">
+          <div class="article-outlet">The Telegraph</div>
+          <h3><a href="https://www.telegraph.co.uk/news/2026/03/17/ucl-student-protests-women-rights-event/" target="_blank">Pro‑trans mob made me the most hated student at my university</a></h3>
+          <p class="article-excerpt">
+            The ordeal I suffered at UCL taught me a painful lesson: the price of freedom can be loss of popularity.
+          </p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-outlet">The Independent</div>
+          <h3><a href="https://www.independent.co.uk/voices/uk-economy-youth-unemployment-lazy-students-b2940210.html" target="_blank">The economy is rigged against students like me</a></h3>
+          <p class="article-excerpt">
+            Youth unemployment is climbing and entry‑level jobs are disappearing. So why is policy making it harder?
+          </p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-outlet">City A.M.</div>
+          <h3><a href="https://www.cityam.com/im-a-teetotaller-banning-alcohol-free-beer-shows-labours-contempt-for-young-people-like-me/" target="_blank">I'm a teetotaller — banning alcohol‑free beer shows Labour's contempt for young people like me</a></h3>
+          <p class="article-excerpt">
+            Why proposed restrictions on alcohol‑free beer reveal deeper issues about youth autonomy.
+          </p>
+        </article>
+
+      </div>
+
+      <p class="section-cta">
+        <a href="external-commentary.html">See all commentary →</a>
+      </p>
+    </section>
+
+  </main>
 
   <!-- ====== FOOTER ====== -->
   <footer class="footer">
     <div>© <span id="year"></span> Samiksha Bhattacharjee. All rights reserved.</div>
     <div class="footer-links">
-      <a href="https://substack.com/@samikshasstateofthedebate" target="_blank" rel="noopener noreferrer">Substack</a>
+      <a href="https://stateofthedebate.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
       <a href="https://www.youtube.com/@SamikshasStateoftheDebate" target="_blank" rel="noopener noreferrer">YouTube</a>
       <a href="mailto:stateofthedebate@gmail.com">Contact</a>
     </div>
   </footer>
 
   <script>
-    // Set current year in footer
+    // Set current year dynamically in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-
 </body>
 </html>
-
